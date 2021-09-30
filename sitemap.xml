@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>http://example.org/deploy/structure/</loc>
+    <lastmod>2021-09-27T09:50:28+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/emily-intro/install/</loc>
+    <lastmod>2021-09-27T09:50:28+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/emily-intro/</loc>
+    <lastmod>2021-09-27T09:39:54+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/emily-intro/build/</loc>
+    <lastmod>2021-09-27T09:50:36+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/deploy/structure/api/</loc>
+    <lastmod>2021-09-27T09:50:28+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/deploy/test/</loc>
+    <lastmod>2021-09-27T09:50:28+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/deploy/</loc>
+    <lastmod>2021-09-27T09:39:54+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/deploy/deploy/</loc>
+    <lastmod>2021-09-27T09:50:28+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/deploy/structure/model/</loc>
+    <lastmod>2021-09-27T09:50:28+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/emily-intro/structure/</loc>
+    <lastmod>2021-09-27T09:50:28+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/emily-intro/share/</loc>
+    <lastmod>2021-09-27T09:50:28+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/deploy/structure/train/</loc>
+    <lastmod>2021-09-27T09:50:28+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/deploy/structure/eval/</loc>
+    <lastmod>2021-09-27T09:50:28+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/deploy/structure/predict/</loc>
+    <lastmod>2021-09-27T09:50:28+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/</loc>
+    <lastmod>2021-09-27T09:50:36+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/</loc>
+  </url>
+  
+</urlset>

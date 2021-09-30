@@ -1,0 +1,120 @@
+[
+{
+	"uri": "http://example.org/deploy/structure/",
+	"title": "Code structure",
+	"tags": [],
+	"description": "",
+	"content": "Many AI and ML projects start as Jupyter notebooks, where one can easily explore data as well as try and compare different models. However, once the project has matured enough that a model has been selected, one should think about how to structure the code in a way that makes it easy to deploy as a service.\nWe will make use of the notebook https://colab.research.google.com/drive/1QktyJ61oU926-zRcX_zoli6knSYUZBu8 where, among other things, regression is used on a penguin dataset. We will identify the relevant parts of this regression and put them into an Emily API project. An Emily API project can be created by running emily build and choosing the Machine learning API template.\n"
+},
+{
+	"uri": "http://example.org/emily-intro/install/",
+	"title": "Install Emily",
+	"tags": [],
+	"description": "",
+	"content": "How to install Emily\n"
+},
+{
+	"uri": "http://example.org/emily-intro/",
+	"title": "Emily intro",
+	"tags": [],
+	"description": "",
+	"content": "Emily intro Emily is an AI platform that can help you setup, develop, and deploy AI microservices.\n"
+},
+{
+	"uri": "http://example.org/emily-intro/build/",
+	"title": "Create Emily project",
+	"tags": [],
+	"description": "",
+	"content": "How to create an Emily project\n"
+},
+{
+	"uri": "http://example.org/deploy/structure/api/",
+	"title": "API",
+	"tags": [],
+	"description": "",
+	"content": "The API is how users and other applications will interact with your service. We therefore need to specify how this interaction will happen. By default, an Emily machine learning API has three endpoints specified in the api.py file related to machine learning:\n /api/train endpoint /api/evaluate endpoint /api/train endpoint  We see in the notebook that the data is taken from an online repository:\npenguins = pd.read_csv(\u0026#34;https://github.com/allisonhorst/palmerpenguins/raw/5b5891f01b52ae26ad8cb9755ec93672f49328a8/data/penguins_size.csv\u0026#34;) This means that we can remove dataset_path as an input to the /api/train/ and /api/evaluate/ endpoints, since we will use this fixed dataset always:\nclass TrainItem(BaseModel): save_path: str @app.post(\u0026#39;/api/train\u0026#39;) def train(item: TrainItem): return {\u0026#39;result\u0026#39;: emily.train(item)} class EvaluateItem(BaseModel): model_path: str @app.post(\u0026#39;/api/evaluate\u0026#39;) def evaluate(item: EvaluateItem): return {\u0026#39;result\u0026#39;: emily.evaluate(item)} Furthermore, if we inspect the code in the notebook, we can see that three features are used for predicting using regression:\n Flipper length Body mass Species  Because of this, we modify the /api/predict/ endpoint to take these as input:\nclass PredictItem(BaseModel): flipper_length: str body_mass: str species: str model_path: str @app.post(\u0026#39;/api/predict\u0026#39;) def predict(item: PredictItem): return {\u0026#39;result\u0026#39;: emily.predict(item)} Full file The api.py file now looks like this:\nimport uvicorn import os from fastapi import FastAPI from fastapi.middleware.cors import CORSMiddleware from pydantic import BaseModel from dotenv import load_dotenv from argparse import ArgumentParser from utilities.utilities import get_uptime from utilities.logging.config import initialize_logging, initialize_logging_middleware from ml.emily import Emily emily = Emily() # --- Welcome to your Emily API! --- # # See the README for guides on how to test it. # Your API endpoints under http://yourdomain/api/... # are accessible from any origin by default. # Make sure to restrict access below to origins you # trust before deploying your API to production. parser = ArgumentParser() parser.add_argument(\u0026#39;-e\u0026#39;, \u0026#39;--env\u0026#39;, default=\u0026#39;.env\u0026#39;, help=\u0026#39;sets the environment file\u0026#39;) args = parser.parse_args() dotenv_file = args.env load_dotenv(dotenv_file) app = FastAPI() initialize_logging() initialize_logging_middleware(app) app.add_middleware( CORSMiddleware, allow_origins=[\u0026#34;*\u0026#34;], allow_credentials=True, allow_methods=[\u0026#34;*\u0026#34;], allow_headers=[\u0026#34;*\u0026#34;], ) @app.get(\u0026#39;/api/health\u0026#39;) def health_check(): return { \u0026#39;uptime\u0026#39;: get_uptime(), \u0026#39;status\u0026#39;: \u0026#39;UP\u0026#39;, \u0026#39;port\u0026#39;: os.environ.get(\u0026#34;HOST_PORT\u0026#34;), } @app.get(\u0026#39;/api\u0026#39;) def hello(): return f\u0026#39;The API is running (uptime: {get_uptime()})\u0026#39; class TrainItem(BaseModel): save_path: str @app.post(\u0026#39;/api/train\u0026#39;) def train(item: TrainItem): return {\u0026#39;result\u0026#39;: emily.train(item)} class EvaluateItem(BaseModel): model_path: str @app.post(\u0026#39;/api/evaluate\u0026#39;) def evaluate(item: EvaluateItem): return {\u0026#39;result\u0026#39;: emily.evaluate(item)} class PredictItem(BaseModel): flipper_length: str body_mass: str species: str model_path: str @app.post(\u0026#39;/api/predict\u0026#39;) def predict(item: PredictItem): return {\u0026#39;result\u0026#39;: emily.predict(item)} if __name__ == \u0026#39;__main__\u0026#39;: uvicorn.run( \u0026#39;api:app\u0026#39;, host=os.environ.get(\u0026#39;HOST_IP\u0026#39;), port=int(os.environ.get(\u0026#39;CONTAINER_PORT\u0026#39;)) ) "
+},
+{
+	"uri": "http://example.org/deploy/test/",
+	"title": "API test",
+	"tags": [],
+	"description": "",
+	"content": "Once you have set up your API, it is time to test that it actually works. There are multiple ways to do this, and you will see here three different\n"
+},
+{
+	"uri": "http://example.org/deploy/",
+	"title": "Deploy to production",
+	"tags": [],
+	"description": "",
+	"content": "Deploy to production AI services running on your own computer can be fun, but in order to let other people use them and actually make an impact, you must put them into production.\n"
+},
+{
+	"uri": "http://example.org/deploy/deploy/",
+	"title": "Deploy",
+	"tags": [],
+	"description": "",
+	"content": "How to put your API into production.\n"
+},
+{
+	"uri": "http://example.org/deploy/structure/model/",
+	"title": "Model",
+	"tags": [],
+	"description": "",
+	"content": "In the notebook we see the following snippet of code where a linear regression model is defined.\nmodel_ols = LinearRegression() In the model.py file, we therefore specify that our model should be a LinearRegression model:\nfrom sklearn.linear_model import LinearRegression class Model(LinearRegression): We also add a scaler to the model, which we will use to standardise data at various stages:\nfrom sklearn.preprocessing import StandardScaler from sklearn.linear_model import LinearRegression def __init__(self): super().__init__() # Inherit methods from the super class which this class extends from self.scaler = StandardScaler() forward method When forwarding a sample to the model, it should simply predict using the predict() method:\ndef forward(self, sample): return self.predict(sample) save_model and load_model methods Finally, to save and load a model, we use the pickle library, which must be imported:\nimport pickle from sklearn.preprocessing import StandardScaler from sklearn.linear_model import LinearRegression Now we can implement saving and loading:\ndef save_model(self, save_path): with open(save_path, \u0026#39;wb\u0026#39;) as fp: pickle.dump(self, fp) def load_model(self, model_path): with open(model_path, \u0026#39;rb\u0026#39;) as fp: model = pickle.load(fp) self.__dict__.update(model.__dict__) Full file The model.py file now looks like this:\nimport pickle from sklearn.preprocessing import StandardScaler from sklearn.linear_model import LinearRegression class Model(LinearRegression): def __init__(self): super().__init__() # Inherit methods from the super class which this class extends from self.scaler = StandardScaler() def forward(self, sample): return self.predict(sample) def save_model(self, save_path): with open(save_path, \u0026#39;wb\u0026#39;) as fp: pickle.dump(self, fp) def load_model(self, model_path): with open(model_path, \u0026#39;rb\u0026#39;) as fp: model = pickle.load(fp) self.__dict__.update(model.__dict__) def __call__(self, sample): return self.forward(sample) "
+},
+{
+	"uri": "http://example.org/emily-intro/structure/",
+	"title": "Structure",
+	"tags": [],
+	"description": "",
+	"content": "Structure of an Emily project\n"
+},
+{
+	"uri": "http://example.org/emily-intro/share/",
+	"title": "Share Emily projects",
+	"tags": [],
+	"description": "",
+	"content": "How to share an Emily project\n"
+},
+{
+	"uri": "http://example.org/deploy/structure/train/",
+	"title": "Training",
+	"tags": [],
+	"description": "",
+	"content": "In the trainer.py file, we can do away with any mention of the dataset_path variable, since we removed this from the /api/train/ endpoint.\n_load_train_data method We first implement the _load_train_data() method, which, as the name suggests, loads the training data. To do this, we first look at the notebook and see that the data is read from a github page using the pandas library:\npenguins = pd.read_csv(\u0026#34;https://github.com/allisonhorst/palmerpenguins/raw/5b5891f01b52ae26ad8cb9755ec93672f49328a8/data/penguins_size.csv\u0026#34;) Therefore we need to import the pandas library, and we will also import the train_test_split library from scikitlearn:\nimport pandas as pd from sklearn.model_selection import train_test_split from ml.model import Model Now we can use pandas to read the data:\ndef _load_train_data(self): data = pd.read_csv(\u0026#34;https://github.com/allisonhorst/palmerpenguins/raw/5b5891f01b52ae26ad8cb9755ec93672f49328a8/data/penguins_size.csv\u0026#34;) return data _preprocess_train_data method We see in the following lines of code from the notebook how to split the data into feature variables (X) and target variable (y):\npenguins.dropna(inplace=True) y = penguins[\u0026#39;culmen_length_mm\u0026#39;] X_dum = penguins.species_short.str.get_dummies() X = pd.concat([penguins.iloc[:,4:6], X_dum], axis=1) X.iloc[:,0:2] = StandardScaler().fit_transform(X.iloc[:,0:2]) from sklearn.model_selection import train_test_split X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 21) We put these parts of the notebook into the _preprocess_train_data() method:\ndef _preprocess_train_data(self, data): data.dropna(inplace=True) y = data[\u0026#39;culmen_length_mm\u0026#39;] X_dum = data.species_short.str.get_dummies() X = pd.concat([data.iloc[:,4:6], X_dum], axis=1) X.iloc[:,0:2] = self.model.scaler.fit_transform(X.iloc[:,0:2]) X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=21) return X_train, y_train train method First we modify the existing code so it conforms to the modifications we have made in the previous methods:\ndef train(self, request): \u0026#34;\u0026#34;\u0026#34; Starts the training of a model based on data loaded by the self._load_train_data function \u0026#34;\u0026#34;\u0026#34; # Unpack request save_path = request.save_path # Read the dataset from the dataset_path data = self._load_train_data() # Preprocess the dataset X_train, y_train = self._preprocess_train_data(data) The relevant code for actually training the model in the notebook is:\nmodel_ols.fit(X_train, y_train) We duplicate this in the train() method:\nself.model.fit(X_train, y_train) # Save the trained model return self.model.save_model(save_path) Full file The trainer.py file now looks like this:\nimport pandas as pd from sklearn.model_selection import train_test_split from ml.model import Model class Trainer: \u0026#34;\u0026#34;\u0026#34; The Trainer class is used for training a model instance based on the Model class found in ml.model.py. In order to get started with training a model the following steps needs to be taken: 1. Define the Model class in ml.model.py 2. Prepare train data on which the model should be trained with by implementing the _read_train_data() function and the _preprocess_train_data() function \u0026#34;\u0026#34;\u0026#34; def __init__(self): self.model = Model() # creates an instance of the Model class (see guidelines in ml.model.py) def train(self, request): \u0026#34;\u0026#34;\u0026#34; Starts the training of a model based on data loaded by the self._load_train_data function \u0026#34;\u0026#34;\u0026#34; # Unpack request save_path = request.save_path # Read the dataset from the dataset_path data = self._load_train_data() # Preprocess the dataset X_train, y_train = self._preprocess_train_data(data) self.model.fit(X_train, y_train) # Save the trained model return self.model.save_model(save_path) def _load_train_data(self): data = pd.read_csv(\u0026#34;https://github.com/allisonhorst/palmerpenguins/raw/5b5891f01b52ae26ad8cb9755ec93672f49328a8/data/penguins_size.csv\u0026#34;) return data def _preprocess_train_data(self, data): data.dropna(inplace=True) y = data[\u0026#39;culmen_length_mm\u0026#39;] X_dum = data.species_short.str.get_dummies() X = pd.concat([data.iloc[:,4:6], X_dum], axis=1) X.iloc[:,0:2] = self.model.scaler.fit_transform(X.iloc[:,0:2]) X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=21) return X_train, y_train def __call__(self, request): return self.train(request) "
+},
+{
+	"uri": "http://example.org/deploy/structure/eval/",
+	"title": "Evaluating",
+	"tags": [],
+	"description": "",
+	"content": "In the evaluator.py file, we can also remove mentions of the dataset_path variable. Many of the steps for evaluating are the same as for training, so we import the same libraries:\nimport pandas as pd from sklearn.model_selection import train_test_split from ml.model import Model _load_test_data method In order to load the test data, we do essentially the same as when loading the train data, except now we return the test data instead of the train data.\ndef _load_test_data(self): data = pd.read_csv(\u0026#34;https://github.com/allisonhorst/palmerpenguins/raw/5b5891f01b52ae26ad8cb9755ec93672f49328a8/data/penguins_size.csv\u0026#34;) return data _preprocess_test_data method Likewise for the preprocessing step, we mirror the steps taken for the train data\ndef _preprocess_test_data(self, data): data.dropna(inplace=True) y = data[\u0026#39;culmen_length_mm\u0026#39;] X_dum = data.species_short.str.get_dummies() X = pd.concat([data.iloc[:,4:6], X_dum], axis=1) X.iloc[:,0:2] = self.model.scaler.transform(X.iloc[:,0:2]) X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=21) return X_test, y_test Note the random_state=21 parameter, which ensures that the data is split the same way each time.\nevaluate method First we modify the existing code to match the changes made to the _load_test_data() and _preprocess_test_data methods:\ndef evaluate(self, request): \u0026#34;\u0026#34;\u0026#34; Evaluates a trained model located at \u0026#39;model_path\u0026#39; based on test data from the self._load_test_data function \u0026#34;\u0026#34;\u0026#34; # Unpack request model_path = request.model_path # Loads a trained instance of the Model class # If no model has been trained yet proceed to follow the steps in ml.trainer.py if model_path != self.model_path: self.model = Model() self.model.load_model(model_path) self.model_path = model_path # Read the dataset from the dataset_path data = self._load_test_data() # Preprocess dataset to prepare it for the evaluator X_test, y_test = self._preprocess_test_data(data) We see in the notebook that the model is evaluated like this:\nmodel_ols.score(X_test, y_test) Putting this into the train() method we obtain:\nscore = self.model.score(X_test, y_test) return score Full file The evaluator.py file now looks like this:\nimport pandas as pd from sklearn.model_selection import train_test_split from ml.model import Model class Evaluator: \u0026#34;\u0026#34;\u0026#34; The Evaluator class is used for evaluating a trained model instance. In order to get started with evaluating a model the following steps needs to be taken: 1. Train a model following the steps in ml.trainer.py 2. Prepare test data on which the model should be evaluated on by implementing the _read_test_data() function and the _preprocess_test_data function \u0026#34;\u0026#34;\u0026#34; def __init__(self): self.model_path = \u0026#34;\u0026#34; self.model = None def evaluate(self, request): \u0026#34;\u0026#34;\u0026#34; Evaluates a trained model located at \u0026#39;model_path\u0026#39; based on test data from the self._load_test_data function \u0026#34;\u0026#34;\u0026#34; # Unpack request model_path = request.model_path # Loads a trained instance of the Model class # If no model has been trained yet proceed to follow the steps in ml.trainer.py if model_path != self.model_path: self.model = Model() self.model.load_model(model_path) self.model_path = model_path # Read the dataset from the dataset_path data = self._load_test_data() # Preprocess dataset to prepare it for the evaluator X_test, y_test = self._preprocess_test_data(data) score = self.model.score(X_test, y_test) return score def _load_test_data(self): data = pd.read_csv(\u0026#34;https://github.com/allisonhorst/palmerpenguins/raw/5b5891f01b52ae26ad8cb9755ec93672f49328a8/data/penguins_size.csv\u0026#34;) return data def _preprocess_test_data(self, data): data.dropna(inplace=True) y = data[\u0026#39;culmen_length_mm\u0026#39;] X_dum = data.species_short.str.get_dummies() X = pd.concat([data.iloc[:,4:6], X_dum], axis=1) X.iloc[:,0:2] = self.model.scaler.transform(X.iloc[:,0:2]) X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=21) return X_test, y_test def __call__(self, request): return self.evaluate(request) "
+},
+{
+	"uri": "http://example.org/deploy/structure/predict/",
+	"title": "Predicting",
+	"tags": [],
+	"description": "",
+	"content": "Now that everything else has been set up, we are ready for doing predictions. As a first step, we import the numpy library, which we will use later.\nimport numpy as np from ml.model import Model _preprocess method The _preprocess() method should take as input the features we use to predict.\n Flipper length Body mass Species  Then the method creates an array and puts the sample input into that array, and finally standardises it using the same scaler as previously, to make sure that the sample is scaled in the same way as the training data.\ndef _preprocess(self, flipper_length, body_mass, species): array = np.zeros((1,5), dtype = int) array[0][0] = flipper_length array[0][1] = body_mass array[0][2] = 0 array[0][3] = 0 array[0][4] = 0 if (species == \u0026#39;Adelie\u0026#39;): array[0][2] = 1 if (species == \u0026#39;Chinstrap\u0026#39;): array[0][3] = 1 if (species == \u0026#39;Gentoo\u0026#39;): array[0][4] array[0,0:2] = self.model.scaler.transform(array[:,0:2]) return array _postprocess method For the postprocessing step, we simply add a bit of explanatory text to the result:\ndef _postprocess(self, prediction): return \u0026#34;Predicted culmen length is \u0026#34; + str(prediction[0]) + \u0026#34; mm\u0026#34; train method For the actual training, all we need to do is to make sure to unpack each of the features in the sample, as well as modify the code slightly to fit the changes made to the other methods:\ndef predict(self, request): \u0026#34;\u0026#34;\u0026#34; Performs prediction on a sample using the model at the given path \u0026#34;\u0026#34;\u0026#34; # Unpack request flipper_length = request.flipper_length body_mass = request.body_mass species = request.species model_path = request.model_path # Loads a trained instance of the Model class # If no model has been trained yet proceed to follow the steps in ml.trainer.py if model_path != self.model_path: self.model = Model() self.model.load_model(model_path) self.model_path = model_path # Preprocess the inputted sample to prepare it for the model preprocessed_sample = self._preprocess(flipper_length, body_mass, species) # Forward the preprocessed sample into the model as defined in the __call__ function in the Model class prediction = self.model(preprocessed_sample) # Postprocess the prediction to prepare it for the client prediction = self._postprocess(prediction) return prediction Full file The predictory.py file now looks like this:\nimport numpy as np from ml.model import Model class Predictor: \u0026#34;\u0026#34;\u0026#34; The Predictor class is used for making predictions using a trained model instance based on the Model class defined in ml.model.py and the training steps defined in ml.trainer.py \u0026#34;\u0026#34;\u0026#34; def __init__(self): self.model_path = \u0026#34;\u0026#34; self.model = None def predict(self, request): \u0026#34;\u0026#34;\u0026#34; Performs prediction on a sample using the model at the given path \u0026#34;\u0026#34;\u0026#34; # Unpack request flipper_length = request.flipper_length body_mass = request.body_mass species = request.species model_path = request.model_path # Loads a trained instance of the Model class # If no model has been trained yet proceed to follow the steps in ml.trainer.py if model_path != self.model_path: self.model = Model() self.model.load_model(model_path) self.model_path = model_path # Preprocess the inputted sample to prepare it for the model preprocessed_sample = self._preprocess(flipper_length, body_mass, species) # Forward the preprocessed sample into the model as defined in the __call__ function in the Model class prediction = self.model(preprocessed_sample) # Postprocess the prediction to prepare it for the client prediction = self._postprocess(prediction) return prediction def _preprocess(self, flipper_length, body_mass, species): array = np.zeros((1,5), dtype = int) array[0][0] = flipper_length array[0][1] = body_mass array[0][2] = 0 array[0][3] = 0 array[0][4] = 0 if (species == \u0026#39;Adelie\u0026#39;): array[0][2] = 1 if (species == \u0026#39;Chinstrap\u0026#39;): array[0][3] = 1 if (species == \u0026#39;Gentoo\u0026#39;): array[0][4] array[0,0:2] = self.model.scaler.transform(array[:,0:2]) return array def _postprocess(self, prediction): return \u0026#34;Predicted culmen length is \u0026#34; + str(prediction[0]) + \u0026#34; mm\u0026#34; def __call__(self, request): return self.predict(request) "
+},
+{
+	"uri": "http://example.org/",
+	"title": "My New Hugo Site",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "http://example.org/categories/",
+	"title": "Categories",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "http://example.org/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+}]

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Emily intro on My New Hugo Site</title>
+    <link>http://example.org/emily-intro/</link>
+    <description>Recent content in Emily intro on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 27 Sep 2021 09:39:54 +0200</lastBuildDate>
+    
+	<atom:link href="http://example.org/emily-intro/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Install Emily</title>
+      <link>http://example.org/emily-intro/install/</link>
+      <pubDate>Mon, 27 Sep 2021 09:50:28 +0200</pubDate>
+      
+      <guid>http://example.org/emily-intro/install/</guid>
+      <description>How to install Emily</description>
+    </item>
+    
+    <item>
+      <title>Create Emily project</title>
+      <link>http://example.org/emily-intro/build/</link>
+      <pubDate>Mon, 27 Sep 2021 09:50:36 +0200</pubDate>
+      
+      <guid>http://example.org/emily-intro/build/</guid>
+      <description>How to create an Emily project</description>
+    </item>
+    
+    <item>
+      <title>Structure</title>
+      <link>http://example.org/emily-intro/structure/</link>
+      <pubDate>Mon, 27 Sep 2021 09:50:28 +0200</pubDate>
+      
+      <guid>http://example.org/emily-intro/structure/</guid>
+      <description>Structure of an Emily project</description>
+    </item>
+    
+    <item>
+      <title>Share Emily projects</title>
+      <link>http://example.org/emily-intro/share/</link>
+      <pubDate>Mon, 27 Sep 2021 09:50:28 +0200</pubDate>
+      
+      <guid>http://example.org/emily-intro/share/</guid>
+      <description>How to share an Emily project</description>
+    </item>
+    
+  </channel>
+</rss>

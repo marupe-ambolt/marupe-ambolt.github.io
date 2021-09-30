@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>My New Hugo Site</title>
+    <link>http://example.org/</link>
+    <description>Recent content on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 27 Sep 2021 09:50:36 +0200</lastBuildDate>
+    
+	<atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Install Emily</title>
+      <link>http://example.org/emily-intro/install/</link>
+      <pubDate>Mon, 27 Sep 2021 09:50:28 +0200</pubDate>
+      
+      <guid>http://example.org/emily-intro/install/</guid>
+      <description>How to install Emily</description>
+    </item>
+    
+    <item>
+      <title>Create Emily project</title>
+      <link>http://example.org/emily-intro/build/</link>
+      <pubDate>Mon, 27 Sep 2021 09:50:36 +0200</pubDate>
+      
+      <guid>http://example.org/emily-intro/build/</guid>
+      <description>How to create an Emily project</description>
+    </item>
+    
+    <item>
+      <title>API</title>
+      <link>http://example.org/deploy/structure/api/</link>
+      <pubDate>Mon, 27 Sep 2021 09:50:28 +0200</pubDate>
+      
+      <guid>http://example.org/deploy/structure/api/</guid>
+      <description>The API is how users and other applications will interact with your service. We therefore need to specify how this interaction will happen. By default, an Emily machine learning API has three endpoints specified in the api.py file related to machine learning:
+ /api/train endpoint /api/evaluate endpoint /api/train endpoint  We see in the notebook that the data is taken from an online repository:
+penguins = pd.read_csv(&amp;#34;https://github.com/allisonhorst/palmerpenguins/raw/5b5891f01b52ae26ad8cb9755ec93672f49328a8/data/penguins_size.csv&amp;#34;) This means that we can remove dataset_path as an input to the /api/train/ and /api/evaluate/ endpoints, since we will use this fixed dataset always:</description>
+    </item>
+    
+    <item>
+      <title>API test</title>
+      <link>http://example.org/deploy/test/</link>
+      <pubDate>Mon, 27 Sep 2021 09:50:28 +0200</pubDate>
+      
+      <guid>http://example.org/deploy/test/</guid>
+      <description>Once you have set up your API, it is time to test that it actually works. There are multiple ways to do this, and you will see here three different</description>
+    </item>
+    
+    <item>
+      <title>Deploy</title>
+      <link>http://example.org/deploy/deploy/</link>
+      <pubDate>Mon, 27 Sep 2021 09:50:28 +0200</pubDate>
+      
+      <guid>http://example.org/deploy/deploy/</guid>
+      <description>How to put your API into production.</description>
+    </item>
+    
+    <item>
+      <title>Model</title>
+      <link>http://example.org/deploy/structure/model/</link>
+      <pubDate>Mon, 27 Sep 2021 09:50:28 +0200</pubDate>
+      
+      <guid>http://example.org/deploy/structure/model/</guid>
+      <description>In the notebook we see the following snippet of code where a linear regression model is defined.
+model_ols = LinearRegression() In the model.py file, we therefore specify that our model should be a LinearRegression model:
+from sklearn.linear_model import LinearRegression class Model(LinearRegression): We also add a scaler to the model, which we will use to standardise data at various stages:
+from sklearn.preprocessing import StandardScaler from sklearn.linear_model import LinearRegression def __init__(self): super().__init__() # Inherit methods from the super class which this class extends from self.</description>
+    </item>
+    
+    <item>
+      <title>Structure</title>
+      <link>http://example.org/emily-intro/structure/</link>
+      <pubDate>Mon, 27 Sep 2021 09:50:28 +0200</pubDate>
+      
+      <guid>http://example.org/emily-intro/structure/</guid>
+      <description>Structure of an Emily project</description>
+    </item>
+    
+    <item>
+      <title>Share Emily projects</title>
+      <link>http://example.org/emily-intro/share/</link>
+      <pubDate>Mon, 27 Sep 2021 09:50:28 +0200</pubDate>
+      
+      <guid>http://example.org/emily-intro/share/</guid>
+      <description>How to share an Emily project</description>
+    </item>
+    
+    <item>
+      <title>Training</title>
+      <link>http://example.org/deploy/structure/train/</link>
+      <pubDate>Mon, 27 Sep 2021 09:50:28 +0200</pubDate>
+      
+      <guid>http://example.org/deploy/structure/train/</guid>
+      <description>In the trainer.py file, we can do away with any mention of the dataset_path variable, since we removed this from the /api/train/ endpoint.
+_load_train_data method We first implement the _load_train_data() method, which, as the name suggests, loads the training data. To do this, we first look at the notebook and see that the data is read from a github page using the pandas library:
+penguins = pd.read_csv(&amp;#34;https://github.com/allisonhorst/palmerpenguins/raw/5b5891f01b52ae26ad8cb9755ec93672f49328a8/data/penguins_size.csv&amp;#34;) Therefore we need to import the pandas library, and we will also import the train_test_split library from scikitlearn:</description>
+    </item>
+    
+    <item>
+      <title>Evaluating</title>
+      <link>http://example.org/deploy/structure/eval/</link>
+      <pubDate>Mon, 27 Sep 2021 09:50:28 +0200</pubDate>
+      
+      <guid>http://example.org/deploy/structure/eval/</guid>
+      <description>In the evaluator.py file, we can also remove mentions of the dataset_path variable. Many of the steps for evaluating are the same as for training, so we import the same libraries:
+import pandas as pd from sklearn.model_selection import train_test_split from ml.model import Model _load_test_data method In order to load the test data, we do essentially the same as when loading the train data, except now we return the test data instead of the train data.</description>
+    </item>
+    
+    <item>
+      <title>Predicting</title>
+      <link>http://example.org/deploy/structure/predict/</link>
+      <pubDate>Mon, 27 Sep 2021 09:50:28 +0200</pubDate>
+      
+      <guid>http://example.org/deploy/structure/predict/</guid>
+      <description>Now that everything else has been set up, we are ready for doing predictions. As a first step, we import the numpy library, which we will use later.
+import numpy as np from ml.model import Model _preprocess method The _preprocess() method should take as input the features we use to predict.
+ Flipper length Body mass Species  Then the method creates an array and puts the sample input into that array, and finally standardises it using the same scaler as previously, to make sure that the sample is scaled in the same way as the training data.</description>
+    </item>
+    
+  </channel>
+</rss>
