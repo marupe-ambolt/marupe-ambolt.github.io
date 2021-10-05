@@ -17,7 +17,9 @@
       <pubDate>Mon, 27 Sep 2021 09:50:28 +0200</pubDate>
       
       <guid>http://example.org/deploy/test/</guid>
-      <description>Once you have set up your API, it is time to test that it actually works. There are multiple ways to do this, and you will see here three different</description>
+      <description>Once you have set up your API and it is running, it is time to test that it actually works. There are multiple ways to do this, and you will see here three different tools for testing your API:
+ Swagger UI Postman curl  We will assume here that you are running your API on http://localhost:4242. Adjust accordingly if you are using a different host or port.
+Swagger UI Postman curl  Emily projects use FastAPI, which automatically supports Swagger UI.</description>
     </item>
     
     <item>
@@ -26,7 +28,9 @@
       <pubDate>Mon, 27 Sep 2021 09:50:28 +0200</pubDate>
       
       <guid>http://example.org/deploy/deploy/</guid>
-      <description>How to put your API into production.</description>
+      <description>Getting your service into production involves deploying it to a server or similar where it is hosted and can be accessed by clients, apps, or other services. Once you have a server setup that you want to deploy to, Emily can help you with the actual deployment.
+To deploy, run emily deploy &amp;lt;project name&amp;gt;. This will generate a number of files, most importantly the deploy script deploy.sh.
+Next you must transfer the project directory to the server.</description>
     </item>
     
   </channel>

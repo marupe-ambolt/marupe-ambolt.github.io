@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Create Emily project :: My New Hugo Site</title>
+    <title>Model :: My New Hugo Site</title>
 
     
     <link href="/css/nucleus.css?1633435336" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/emily-intro/build/">
+  <body class="" data-url="/emily-intro/structure/model/">
     <nav id="sidebar" class="">
 
 
@@ -154,7 +154,7 @@
  
   
     
-      <li data-nav-id="/emily-intro/build/" title="Create Emily project" class="dd-item active">
+      <li data-nav-id="/emily-intro/build/" title="Create Emily project" class="dd-item ">
         <a href="/emily-intro/build/">
         Create Emily project
         
@@ -176,7 +176,7 @@
   
     
     <li data-nav-id="/emily-intro/structure/" title="Structure" class="dd-item
-        
+        parent
         
         
         ">
@@ -307,7 +307,7 @@
  
   
     
-      <li data-nav-id="/emily-intro/structure/model/" title="Model" class="dd-item ">
+      <li data-nav-id="/emily-intro/structure/model/" title="Model" class="dd-item active">
         <a href="/emily-intro/structure/model/">
         Model
         
@@ -624,7 +624,13 @@
             
           
           
-            <a href='/'>My New Hugo Site</a> > <a href='/emily-intro/'>Emily intro</a> > Create Emily project
+            
+            
+          
+          
+            <a href='/'>My New Hugo Site</a> > <a href='/emily-intro/'>Emily intro</a> > <a href='/emily-intro/structure/'>Structure</a> > Model
+          
+        
           
         
           
@@ -653,50 +659,28 @@
           
             <h1>
               
-              Create Emily project
+              Model
             </h1>
           
 
         
 
 
-<p>To create an Emily project, type <code>emily build</code> in a terminal. You will be prompted for a project name. Enter one and press enter.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">? Emily: Project name:
- ‣ my-emily-project
-</code></pre></div><p>Next you will be asked to choose an Emily template. These are code templates that will save you time in setting up boilerplate code for your projects. They come in different flavours, depending on what kind of project you are making. The machine learning API template should serve you well for most machine learning projects.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">? Emily: Which Emily template do you want to use?
-(Use arrow keys, confirm with ⎆)
- … 
-  Default - Minimal project with hello world script
-  API - Simple project with API set up and ready
-▸ Machine learning API - Machine learning template with API
-  Deep neural network API - Deep neural network template with an API using Pytorch
-  Machine learning gRPC - Machine learning template with gRPC
-</code></pre></div><p>Next you will select an Emily Docker image through a few choices. The first choice is what kind of project you will be doing. The slim project type should be enough for many machine learning projects, but if you already know that you will do a more specialised project, you could select another project type. Remember that you can always add more python packages after the project has been created.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">? Emily: Which project type best fits your case?
-(Use arrow keys, confirm with ⎆)
- … 
-  Minimal (contains just enough to run an API)
-▸ Slim (contains essential Machine Learning packages)
-  Computer Vision
-  Natural Language Processing
-</code></pre></div><p>Next you will choose whether to use deep learning or not, and which deep learning platform you wish to use.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">? Emily: Which deep learning platform do you want to use?
-(Use arrow keys, confirm with ⎆)
- … 
-▸ No deep learning platform
-  PyTorch
-  Tensorflow
-</code></pre></div><p>Finally, choose the editor that you want to open the project in. If you change your mind later, you can always open the project in another editor by running <code>emily open</code> with the <code>--editor</code> flag.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">? Emily: Which editor do you want to use?
-(Use arrow keys, confirm with ⎆)
- … 
-▸ Visual Studio Code
-  PyCharm
-  Jupyter Notebook
-  Jupyter Lab
-</code></pre></div><p>Emily will now build and start a Docker container and then open the project in whichever editor you chose.</p>
-
+<p>The model is where the type of machine learning model to be used in the Emily project is specified. This should be done by letting the model class inherit from whichever machine learning model you wish to use in the project. For example, if you want to use a linear regression model, you can use the LinearRegression class from scikit-learn:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Model</span>(sklearn<span style="color:#f92672">.</span>linear_model<span style="color:#f92672">.</span>LinearRegression):
+</code></pre></div><p>When we forward a sample to the model, it should make a prediction. This should be implemented in the <code>forward</code> method. For example, if you are using a scikit-learn model, this can be done in the following way:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">forward</span>(self, sample):
+  <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>predict(sample)
+</code></pre></div><p>Finally, we must implement saving and loading a model in the <code>save_model</code> and <code>load_model</code> methods. Both can for example be done using the pickle library. Saving a model using pickle can be done in the following way:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">save_model</span>(self, save_path):
+    <span style="color:#66d9ef">with</span> open(save_path, <span style="color:#e6db74">&#39;wb&#39;</span>) <span style="color:#66d9ef">as</span> fp:
+        pickle<span style="color:#f92672">.</span>dump(self, fp)
+</code></pre></div><p>Likewise, loading a model using pickle can be done like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">load_model</span>(self, model_path):
+    <span style="color:#66d9ef">with</span> open(model_path, <span style="color:#e6db74">&#39;rb&#39;</span>) <span style="color:#66d9ef">as</span> fp:
+        model <span style="color:#f92672">=</span> pickle<span style="color:#f92672">.</span>load(fp)
+        self<span style="color:#f92672">.</span>__dict__<span style="color:#f92672">.</span>update(model<span style="color:#f92672">.</span>__dict__)
+</code></pre></div>
 
 <footer class="footline">
 	
@@ -768,7 +752,6 @@
             
                 
                     
-                    
                 
                 
 
@@ -785,8 +768,6 @@
             
                 
                     
-                        
-                        
                     
                 
                 
@@ -801,21 +782,8 @@
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
                         
-            
-            
-                
+                        
                     
                 
                 
@@ -892,6 +860,23 @@
             
         
                     
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
                     
@@ -899,6 +884,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1069,10 +1057,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/emily-intro/install/" title="Install Emily"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/emily-intro/structure/predictor/" title="Predictor"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/emily-intro/structure/" title="Structure" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/emily-intro/share/" title="Share Emily projects" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1082,19 +1070,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1633435336"></script>
-    <script src="/js/perfect-scrollbar.min.js?1633435336"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1633435336"></script>
-    <script src="/js/jquery.sticky.js?1633435336"></script>
-    <script src="/js/featherlight.min.js?1633435336"></script>
-    <script src="/js/highlight.pack.js?1633435336"></script>
+    <script src="/js/clipboard.min.js?1633435337"></script>
+    <script src="/js/perfect-scrollbar.min.js?1633435337"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1633435337"></script>
+    <script src="/js/jquery.sticky.js?1633435337"></script>
+    <script src="/js/featherlight.min.js?1633435337"></script>
+    <script src="/js/highlight.pack.js?1633435337"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1633435336"></script>
-    <script src="/js/learn.js?1633435336"></script>
-    <script src="/js/hugo-learn.js?1633435336"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1633435337"></script>
+    <script src="/js/learn.js?1633435337"></script>
+    <script src="/js/hugo-learn.js?1633435337"></script>
     
         
-            <script src="/mermaid/mermaid.js?1633435336"></script>
+            <script src="/mermaid/mermaid.js?1633435337"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

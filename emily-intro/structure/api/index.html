@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Create Emily project :: My New Hugo Site</title>
+    <title>API :: My New Hugo Site</title>
 
     
     <link href="/css/nucleus.css?1633435336" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/emily-intro/build/">
+  <body class="" data-url="/emily-intro/structure/api/">
     <nav id="sidebar" class="">
 
 
@@ -154,7 +154,7 @@
  
   
     
-      <li data-nav-id="/emily-intro/build/" title="Create Emily project" class="dd-item active">
+      <li data-nav-id="/emily-intro/build/" title="Create Emily project" class="dd-item ">
         <a href="/emily-intro/build/">
         Create Emily project
         
@@ -176,7 +176,7 @@
   
     
     <li data-nav-id="/emily-intro/structure/" title="Structure" class="dd-item
-        
+        parent
         
         
         ">
@@ -202,7 +202,7 @@
  
   
     
-      <li data-nav-id="/emily-intro/structure/api/" title="API" class="dd-item ">
+      <li data-nav-id="/emily-intro/structure/api/" title="API" class="dd-item active">
         <a href="/emily-intro/structure/api/">
         API
         
@@ -624,7 +624,13 @@
             
           
           
-            <a href='/'>My New Hugo Site</a> > <a href='/emily-intro/'>Emily intro</a> > Create Emily project
+            
+            
+          
+          
+            <a href='/'>My New Hugo Site</a> > <a href='/emily-intro/'>Emily intro</a> > <a href='/emily-intro/structure/'>Structure</a> > API
+          
+        
           
         
           
@@ -653,50 +659,33 @@
           
             <h1>
               
-              Create Emily project
+              API
             </h1>
           
 
         
 
 
-<p>To create an Emily project, type <code>emily build</code> in a terminal. You will be prompted for a project name. Enter one and press enter.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">? Emily: Project name:
- ‣ my-emily-project
-</code></pre></div><p>Next you will be asked to choose an Emily template. These are code templates that will save you time in setting up boilerplate code for your projects. They come in different flavours, depending on what kind of project you are making. The machine learning API template should serve you well for most machine learning projects.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">? Emily: Which Emily template do you want to use?
-(Use arrow keys, confirm with ⎆)
- … 
-  Default - Minimal project with hello world script
-  API - Simple project with API set up and ready
-▸ Machine learning API - Machine learning template with API
-  Deep neural network API - Deep neural network template with an API using Pytorch
-  Machine learning gRPC - Machine learning template with gRPC
-</code></pre></div><p>Next you will select an Emily Docker image through a few choices. The first choice is what kind of project you will be doing. The slim project type should be enough for many machine learning projects, but if you already know that you will do a more specialised project, you could select another project type. Remember that you can always add more python packages after the project has been created.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">? Emily: Which project type best fits your case?
-(Use arrow keys, confirm with ⎆)
- … 
-  Minimal (contains just enough to run an API)
-▸ Slim (contains essential Machine Learning packages)
-  Computer Vision
-  Natural Language Processing
-</code></pre></div><p>Next you will choose whether to use deep learning or not, and which deep learning platform you wish to use.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">? Emily: Which deep learning platform do you want to use?
-(Use arrow keys, confirm with ⎆)
- … 
-▸ No deep learning platform
-  PyTorch
-  Tensorflow
-</code></pre></div><p>Finally, choose the editor that you want to open the project in. If you change your mind later, you can always open the project in another editor by running <code>emily open</code> with the <code>--editor</code> flag.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">? Emily: Which editor do you want to use?
-(Use arrow keys, confirm with ⎆)
- … 
-▸ Visual Studio Code
-  PyCharm
-  Jupyter Notebook
-  Jupyter Lab
-</code></pre></div><p>Emily will now build and start a Docker container and then open the project in whichever editor you chose.</p>
+<p>The API contains endpoints that can be called by a user or another service to interact with the machine learning service implemented by the Emily project. As an example, let us have a look at the predict endpoint:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PredictItem</span>(BaseModel):
+    sample: str
+    model_path: str
 
+<span style="color:#a6e22e">@app.post</span>(<span style="color:#e6db74">&#39;/api/predict&#39;</span>)
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">predict</span>(item: PredictItem):
+    <span style="color:#66d9ef">return</span> {<span style="color:#e6db74">&#39;result&#39;</span>: emily<span style="color:#f92672">.</span>predict(item)}
+</code></pre></div><p>Here we can see that the predict endpoint is a POST request and is accessed through <!-- raw HTML omitted -->/api/predict<!-- raw HTML omitted -->. Furthermore, we see that it requires two parameters in the request body: a sample and a model path.</p>
+<p>It is simple to change the required parameters. For example, let us say that instead of a single sample parameter, you have a model that takes date, price, and quantity as input. We can change the endpoint to handle this in the following way:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PredictItem</span>(BaseModel):
+    date: str
+    price: str
+    quantity: str
+    model_path: str
+
+<span style="color:#a6e22e">@app.post</span>(<span style="color:#e6db74">&#39;/api/predict&#39;</span>)
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">predict</span>(item: PredictItem):
+    <span style="color:#66d9ef">return</span> {<span style="color:#e6db74">&#39;result&#39;</span>: emily<span style="color:#f92672">.</span>predict(item)}
+</code></pre></div>
 
 <footer class="footline">
 	
@@ -768,6 +757,36 @@
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
                     
                 
                 
@@ -787,35 +806,6 @@
                     
                         
                         
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
                     
                 
                 
@@ -1069,10 +1059,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/emily-intro/install/" title="Install Emily"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/emily-intro/structure/" title="Structure"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/emily-intro/structure/" title="Structure" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/emily-intro/structure/emily/" title="Emily" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

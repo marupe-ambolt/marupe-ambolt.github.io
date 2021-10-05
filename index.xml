@@ -12,12 +12,23 @@
     
     
     <item>
+      <title>API</title>
+      <link>http://example.org/emily-intro/structure/api/</link>
+      <pubDate>Mon, 27 Sep 2021 09:50:28 +0200</pubDate>
+      
+      <guid>http://example.org/emily-intro/structure/api/</guid>
+      <description>The API contains endpoints that can be called by a user or another service to interact with the machine learning service implemented by the Emily project. As an example, let us have a look at the predict endpoint:
+class PredictItem(BaseModel): sample: str model_path: str @app.post(&amp;#39;/api/predict&amp;#39;) def predict(item: PredictItem): return {&amp;#39;result&amp;#39;: emily.predict(item)} Here we can see that the predict endpoint is a POST request and is accessed through /api/predict. Furthermore, we see that it requires two parameters in the request body: a sample and a model path.</description>
+    </item>
+    
+    <item>
       <title>Install Emily</title>
       <link>http://example.org/emily-intro/install/</link>
       <pubDate>Mon, 27 Sep 2021 09:50:28 +0200</pubDate>
       
       <guid>http://example.org/emily-intro/install/</guid>
-      <description>How to install Emily</description>
+      <description>This guide will show you how to install Emily.
+Windows MacOS Ubuntu  First download the newest Emily release here. Run the emily-installer.exe file, which will present you with an installation wizard. Go through the steps of the installation wizard to finish the installation. During the installation, you will be asked about additional items to setup. Emily needs Docker and Visual Studio Code in order to work. You can choose to let Emily install them for you, or you can install them yourself if you prefer.</description>
     </item>
     
     <item>
@@ -26,7 +37,8 @@
       <pubDate>Mon, 27 Sep 2021 09:50:36 +0200</pubDate>
       
       <guid>http://example.org/emily-intro/build/</guid>
-      <description>How to create an Emily project</description>
+      <description>To create an Emily project, type emily build in a terminal. You will be prompted for a project name. Enter one and press enter.
+? Emily: Project name: ‣ my-emily-project Next you will be asked to choose an Emily template. These are code templates that will save you time in setting up boilerplate code for your projects. They come in different flavours, depending on what kind of project you are making.</description>
     </item>
     
     <item>
@@ -46,7 +58,19 @@ penguins = pd.read_csv(&amp;#34;https://github.com/allisonhorst/palmerpenguins/r
       <pubDate>Mon, 27 Sep 2021 09:50:28 +0200</pubDate>
       
       <guid>http://example.org/deploy/test/</guid>
-      <description>Once you have set up your API, it is time to test that it actually works. There are multiple ways to do this, and you will see here three different</description>
+      <description>Once you have set up your API and it is running, it is time to test that it actually works. There are multiple ways to do this, and you will see here three different tools for testing your API:
+ Swagger UI Postman curl  We will assume here that you are running your API on http://localhost:4242. Adjust accordingly if you are using a different host or port.
+Swagger UI Postman curl  Emily projects use FastAPI, which automatically supports Swagger UI.</description>
+    </item>
+    
+    <item>
+      <title>Emily</title>
+      <link>http://example.org/emily-intro/structure/emily/</link>
+      <pubDate>Mon, 27 Sep 2021 09:50:28 +0200</pubDate>
+      
+      <guid>http://example.org/emily-intro/structure/emily/</guid>
+      <description>The Emily class is simply a wrapper class that instantiates a trainer, an evaluator, and a predictor, and makes these available for calling through the API.
+def __init__(self): self.predictor = Predictor() # Creates instance of the Predictor class self.trainer = Trainer() # Creates instance of the Trainer class self.evaluator = Evaluator() # Creates instance of the Evaluator class def predict(self, request): &amp;#34;&amp;#34;&amp;#34; This function calls the __call__ function from the Predictor class in ml.</description>
     </item>
     
     <item>
@@ -55,7 +79,9 @@ penguins = pd.read_csv(&amp;#34;https://github.com/allisonhorst/palmerpenguins/r
       <pubDate>Mon, 27 Sep 2021 09:50:28 +0200</pubDate>
       
       <guid>http://example.org/deploy/deploy/</guid>
-      <description>How to put your API into production.</description>
+      <description>Getting your service into production involves deploying it to a server or similar where it is hosted and can be accessed by clients, apps, or other services. Once you have a server setup that you want to deploy to, Emily can help you with the actual deployment.
+To deploy, run emily deploy &amp;lt;project name&amp;gt;. This will generate a number of files, most importantly the deploy script deploy.sh.
+Next you must transfer the project directory to the server.</description>
     </item>
     
     <item>
@@ -71,12 +97,25 @@ from sklearn.preprocessing import StandardScaler from sklearn.linear_model impor
     </item>
     
     <item>
-      <title>Structure</title>
-      <link>http://example.org/emily-intro/structure/</link>
+      <title>Trainer</title>
+      <link>http://example.org/emily-intro/structure/trainer/</link>
       <pubDate>Mon, 27 Sep 2021 09:50:28 +0200</pubDate>
       
-      <guid>http://example.org/emily-intro/structure/</guid>
-      <description>Structure of an Emily project</description>
+      <guid>http://example.org/emily-intro/structure/trainer/</guid>
+      <description>The trainer implements the behaviour for training a model. The steps for doing so are the following:
+ Load training data Preprocess training data Train using the training data Save the trained model  1. Load training data In order to load the training data, the _load_train_data method must be implemented. For example, the training data can be loaded by reading a csv file using pandas:
+def _load_train_data(self, dataset_path): train_dataset = pandas.</description>
+    </item>
+    
+    <item>
+      <title>Evaluator</title>
+      <link>http://example.org/emily-intro/structure/evaluator/</link>
+      <pubDate>Mon, 27 Sep 2021 09:50:28 +0200</pubDate>
+      
+      <guid>http://example.org/emily-intro/structure/evaluator/</guid>
+      <description>The evaluator implements the behaviour for evaluating a model. The steps for doing so are the following:
+ Load the model Load the test data Preprocess the test data Evaluate the model on the test data  1. Load the model In order to load the model, use the load_model method on the model class. Here is how this is done by default in the template:
+if model_path != self.model_path: self.</description>
     </item>
     
     <item>
@@ -85,7 +124,8 @@ from sklearn.preprocessing import StandardScaler from sklearn.linear_model impor
       <pubDate>Mon, 27 Sep 2021 09:50:28 +0200</pubDate>
       
       <guid>http://example.org/emily-intro/share/</guid>
-      <description>How to share an Emily project</description>
+      <description>When working in a team, it is important that machine learning projects can be shared among team members. Emily supports easy sharing of projects, and integrates with version control software such as git.
+In order to open an Emily project created on another computer, simply copy the project folder onto your own computer, either by standard file copying or through a version control software such as git. Let&amp;rsquo;s say the folder you have copied is called my-emily-project.</description>
     </item>
     
     <item>
@@ -107,6 +147,27 @@ penguins = pd.read_csv(&amp;#34;https://github.com/allisonhorst/palmerpenguins/r
       <guid>http://example.org/deploy/structure/eval/</guid>
       <description>In the evaluator.py file, we can also remove mentions of the dataset_path variable. Many of the steps for evaluating are the same as for training, so we import the same libraries:
 import pandas as pd from sklearn.model_selection import train_test_split from ml.model import Model _load_test_data method In order to load the test data, we do essentially the same as when loading the train data, except now we return the test data instead of the train data.</description>
+    </item>
+    
+    <item>
+      <title>Predictor</title>
+      <link>http://example.org/emily-intro/structure/predictor/</link>
+      <pubDate>Mon, 27 Sep 2021 09:50:28 +0200</pubDate>
+      
+      <guid>http://example.org/emily-intro/structure/predictor/</guid>
+      <description>The predictor implements the behaviour for using a model to make a prediction based on a sample. The steps for doing so are the following:
+ Load the model Preprocess the sample Make the prediction Postprocess the prediction  1. Load the model In order to load the model, use the load_model method on the model class. Here is how this is done by default in the template:
+if model_path !</description>
+    </item>
+    
+    <item>
+      <title>Model</title>
+      <link>http://example.org/emily-intro/structure/model/</link>
+      <pubDate>Mon, 27 Sep 2021 09:50:28 +0200</pubDate>
+      
+      <guid>http://example.org/emily-intro/structure/model/</guid>
+      <description>The model is where the type of machine learning model to be used in the Emily project is specified. This should be done by letting the model class inherit from whichever machine learning model you wish to use in the project. For example, if you want to use a linear regression model, you can use the LinearRegression class from scikit-learn:
+class Model(sklearn.linear_model.LinearRegression): When we forward a sample to the model, it should make a prediction.</description>
     </item>
     
     <item>

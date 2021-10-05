@@ -12,20 +12,20 @@
     <title>Training :: My New Hugo Site</title>
 
     
-    <link href="/css/nucleus.css?1633007291" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1633007291" rel="stylesheet">
-    <link href="/css/hybrid.css?1633007291" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1633007291" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1633007291" rel="stylesheet">
-    <link href="/css/auto-complete.css?1633007291" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1633007291" rel="stylesheet">
-    <link href="/css/theme.css?1633007291" rel="stylesheet">
-    <link href="/css/tabs.css?1633007291" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1633007291" rel="stylesheet">
+    <link href="/css/nucleus.css?1633435336" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1633435336" rel="stylesheet">
+    <link href="/css/hybrid.css?1633435336" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1633435336" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1633435336" rel="stylesheet">
+    <link href="/css/auto-complete.css?1633435336" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1633435336" rel="stylesheet">
+    <link href="/css/theme.css?1633435336" rel="stylesheet">
+    <link href="/css/tabs.css?1633435336" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1633435336" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1633007291"></script>
+    <script src="/js/jquery-3.3.1.min.js?1633435336"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -70,14 +70,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1633007291"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1633007291"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1633435336"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1633435336"></script>
 <script type="text/javascript">
     
         var baseurl = "http:\/\/example.org\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1633007291"></script>
+<script type="text/javascript" src="/js/search.js?1633435336"></script>
 
     
   </div>
@@ -117,6 +117,8 @@
       
         <ul>
           
+          
+            
           
           
 
@@ -173,13 +175,154 @@
  
   
     
-      <li data-nav-id="/emily-intro/structure/" title="Structure" class="dd-item ">
-        <a href="/emily-intro/structure/">
-        Structure
+    <li data-nav-id="/emily-intro/structure/" title="Structure" class="dd-item
+        
+        
+        
+        ">
+      <a href="/emily-intro/structure/">
+          Structure
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/emily-intro/structure/api/" title="API" class="dd-item ">
+        <a href="/emily-intro/structure/api/">
+        API
         
         </a>
     </li>
      
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/emily-intro/structure/emily/" title="Emily" class="dd-item ">
+        <a href="/emily-intro/structure/emily/">
+        Emily
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/emily-intro/structure/trainer/" title="Trainer" class="dd-item ">
+        <a href="/emily-intro/structure/trainer/">
+        Trainer
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/emily-intro/structure/evaluator/" title="Evaluator" class="dd-item ">
+        <a href="/emily-intro/structure/evaluator/">
+        Evaluator
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/emily-intro/structure/predictor/" title="Predictor" class="dd-item ">
+        <a href="/emily-intro/structure/predictor/">
+        Predictor
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/emily-intro/structure/model/" title="Model" class="dd-item ">
+        <a href="/emily-intro/structure/model/">
+        Model
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
   
  
 
@@ -537,7 +680,7 @@
 <p>In the <code>trainer.py</code> file, we can do away with any mention of the <code>dataset_path</code> variable, since we removed this from the <code>/api/train/</code> endpoint.</p>
 <h3 id="_load_train_data-method"><em>_load_train_data</em> method</h3>
 <p>We first implement the <code>_load_train_data()</code> method, which, as the name suggests, loads the training data.
-To do this, we first look at the notebook and see that the data is read from a github page using the pandas library:</p>
+To do this, we first look at <a href="https://nbviewer.jupyter.org/github/SDS-AAU/SDS-master/blob/master/M1/notebooks/SML_application_py.ipynb">the notebook</a> and see that the data is read from a github page using the pandas library:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">penguins <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;https://github.com/allisonhorst/palmerpenguins/raw/5b5891f01b52ae26ad8cb9755ec93672f49328a8/data/penguins_size.csv&#34;</span>)
 </code></pre></div><p>Therefore we need to import the pandas library, and we will also import the <code>train_test_split</code> library from scikitlearn:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> pandas <span style="color:#f92672">as</span> pd
@@ -548,7 +691,7 @@ To do this, we first look at the notebook and see that the data is read from a g
     data <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;https://github.com/allisonhorst/palmerpenguins/raw/5b5891f01b52ae26ad8cb9755ec93672f49328a8/data/penguins_size.csv&#34;</span>)
     <span style="color:#66d9ef">return</span> data
 </code></pre></div><h3 id="_preprocess_train_data-method"><em>_preprocess_train_data</em> method</h3>
-<p>We see in the following lines of code from the notebook how to split the data into feature variables (<code>X</code>) and target variable (<code>y</code>):</p>
+<p>We see in the following lines of code from <a href="https://nbviewer.jupyter.org/github/SDS-AAU/SDS-master/blob/master/M1/notebooks/SML_application_py.ipynb">the notebook</a> how to split the data into feature variables (<code>X</code>) and target variable (<code>y</code>):</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">penguins<span style="color:#f92672">.</span>dropna(inplace<span style="color:#f92672">=</span>True)
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">y <span style="color:#f92672">=</span> penguins[<span style="color:#e6db74">&#39;culmen_length_mm&#39;</span>]
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">X_dum <span style="color:#f92672">=</span> penguins<span style="color:#f92672">.</span>species_short<span style="color:#f92672">.</span>str<span style="color:#f92672">.</span>get_dummies()
@@ -556,7 +699,7 @@ To do this, we first look at the notebook and see that the data is read from a g
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">X<span style="color:#f92672">.</span>iloc[:,<span style="color:#ae81ff">0</span>:<span style="color:#ae81ff">2</span>] <span style="color:#f92672">=</span> StandardScaler()<span style="color:#f92672">.</span>fit_transform(X<span style="color:#f92672">.</span>iloc[:,<span style="color:#ae81ff">0</span>:<span style="color:#ae81ff">2</span>])
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> sklearn.model_selection <span style="color:#f92672">import</span> train_test_split
 X_train, X_test, y_train, y_test <span style="color:#f92672">=</span> train_test_split(X, y, test_size <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.2</span>, random_state <span style="color:#f92672">=</span> <span style="color:#ae81ff">21</span>)
-</code></pre></div><p>We put these parts of the notebook into the <code>_preprocess_train_data()</code> method:</p>
+</code></pre></div><p>We put these parts of <a href="https://nbviewer.jupyter.org/github/SDS-AAU/SDS-master/blob/master/M1/notebooks/SML_application_py.ipynb">the notebook</a> into the <code>_preprocess_train_data()</code> method:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">_preprocess_train_data</span>(self, data):
     data<span style="color:#f92672">.</span>dropna(inplace<span style="color:#f92672">=</span>True)        
 
@@ -582,7 +725,7 @@ X_train, X_test, y_train, y_test <span style="color:#f92672">=</span> train_test
 
     <span style="color:#75715e"># Preprocess the dataset</span>
     X_train, y_train <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>_preprocess_train_data(data)
-</code></pre></div><p>The relevant code for actually training the model in the notebook is:</p>
+</code></pre></div><p>The relevant code for actually training the model in <a href="https://nbviewer.jupyter.org/github/SDS-AAU/SDS-master/blob/master/M1/notebooks/SML_application_py.ipynb">the notebook</a> is:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">model_ols<span style="color:#f92672">.</span>fit(X_train, y_train)
 </code></pre></div><p>We duplicate this in the <code>train()</code> method:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">self<span style="color:#f92672">.</span>model<span style="color:#f92672">.</span>fit(X_train, y_train)
@@ -689,6 +832,8 @@ X_train, X_test, y_train, y_test <span style="color:#f92672">=</span> train_test
 
                     
                     
+                        
+                    
                     
 
                     
@@ -736,6 +881,102 @@ X_train, X_test, y_train, y_test <span style="color:#f92672">=</span> train_test
                     
                     
 
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
             
         
@@ -936,19 +1177,19 @@ X_train, X_test, y_train, y_test <span style="color:#f92672">=</span> train_test
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1633007291"></script>
-    <script src="/js/perfect-scrollbar.min.js?1633007291"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1633007291"></script>
-    <script src="/js/jquery.sticky.js?1633007291"></script>
-    <script src="/js/featherlight.min.js?1633007291"></script>
-    <script src="/js/highlight.pack.js?1633007291"></script>
+    <script src="/js/clipboard.min.js?1633435337"></script>
+    <script src="/js/perfect-scrollbar.min.js?1633435337"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1633435337"></script>
+    <script src="/js/jquery.sticky.js?1633435337"></script>
+    <script src="/js/featherlight.min.js?1633435337"></script>
+    <script src="/js/highlight.pack.js?1633435337"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1633007291"></script>
-    <script src="/js/learn.js?1633007291"></script>
-    <script src="/js/hugo-learn.js?1633007291"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1633435337"></script>
+    <script src="/js/learn.js?1633435337"></script>
+    <script src="/js/hugo-learn.js?1633435337"></script>
     
         
-            <script src="/mermaid/mermaid.js?1633007291"></script>
+            <script src="/mermaid/mermaid.js?1633435337"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

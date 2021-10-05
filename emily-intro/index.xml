@@ -17,7 +17,8 @@
       <pubDate>Mon, 27 Sep 2021 09:50:28 +0200</pubDate>
       
       <guid>http://example.org/emily-intro/install/</guid>
-      <description>How to install Emily</description>
+      <description>This guide will show you how to install Emily.
+Windows MacOS Ubuntu  First download the newest Emily release here. Run the emily-installer.exe file, which will present you with an installation wizard. Go through the steps of the installation wizard to finish the installation. During the installation, you will be asked about additional items to setup. Emily needs Docker and Visual Studio Code in order to work. You can choose to let Emily install them for you, or you can install them yourself if you prefer.</description>
     </item>
     
     <item>
@@ -26,16 +27,8 @@
       <pubDate>Mon, 27 Sep 2021 09:50:36 +0200</pubDate>
       
       <guid>http://example.org/emily-intro/build/</guid>
-      <description>How to create an Emily project</description>
-    </item>
-    
-    <item>
-      <title>Structure</title>
-      <link>http://example.org/emily-intro/structure/</link>
-      <pubDate>Mon, 27 Sep 2021 09:50:28 +0200</pubDate>
-      
-      <guid>http://example.org/emily-intro/structure/</guid>
-      <description>Structure of an Emily project</description>
+      <description>To create an Emily project, type emily build in a terminal. You will be prompted for a project name. Enter one and press enter.
+? Emily: Project name: ‣ my-emily-project Next you will be asked to choose an Emily template. These are code templates that will save you time in setting up boilerplate code for your projects. They come in different flavours, depending on what kind of project you are making.</description>
     </item>
     
     <item>
@@ -44,7 +37,8 @@
       <pubDate>Mon, 27 Sep 2021 09:50:28 +0200</pubDate>
       
       <guid>http://example.org/emily-intro/share/</guid>
-      <description>How to share an Emily project</description>
+      <description>When working in a team, it is important that machine learning projects can be shared among team members. Emily supports easy sharing of projects, and integrates with version control software such as git.
+In order to open an Emily project created on another computer, simply copy the project folder onto your own computer, either by standard file copying or through a version control software such as git. Let&amp;rsquo;s say the folder you have copied is called my-emily-project.</description>
     </item>
     
   </channel>

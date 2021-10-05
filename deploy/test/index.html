@@ -12,20 +12,20 @@
     <title>API test :: My New Hugo Site</title>
 
     
-    <link href="/css/nucleus.css?1633007291" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1633007291" rel="stylesheet">
-    <link href="/css/hybrid.css?1633007291" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1633007291" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1633007291" rel="stylesheet">
-    <link href="/css/auto-complete.css?1633007291" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1633007291" rel="stylesheet">
-    <link href="/css/theme.css?1633007291" rel="stylesheet">
-    <link href="/css/tabs.css?1633007291" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1633007291" rel="stylesheet">
+    <link href="/css/nucleus.css?1633435336" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1633435336" rel="stylesheet">
+    <link href="/css/hybrid.css?1633435336" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1633435336" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1633435336" rel="stylesheet">
+    <link href="/css/auto-complete.css?1633435336" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1633435336" rel="stylesheet">
+    <link href="/css/theme.css?1633435336" rel="stylesheet">
+    <link href="/css/tabs.css?1633435336" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1633435336" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1633007291"></script>
+    <script src="/js/jquery-3.3.1.min.js?1633435336"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -70,14 +70,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1633007291"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1633007291"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1633435336"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1633435336"></script>
 <script type="text/javascript">
     
         var baseurl = "http:\/\/example.org\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1633007291"></script>
+<script type="text/javascript" src="/js/search.js?1633435336"></script>
 
     
   </div>
@@ -117,6 +117,8 @@
       
         <ul>
           
+          
+            
           
           
 
@@ -173,13 +175,154 @@
  
   
     
-      <li data-nav-id="/emily-intro/structure/" title="Structure" class="dd-item ">
-        <a href="/emily-intro/structure/">
-        Structure
+    <li data-nav-id="/emily-intro/structure/" title="Structure" class="dd-item
+        
+        
+        
+        ">
+      <a href="/emily-intro/structure/">
+          Structure
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/emily-intro/structure/api/" title="API" class="dd-item ">
+        <a href="/emily-intro/structure/api/">
+        API
         
         </a>
     </li>
      
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/emily-intro/structure/emily/" title="Emily" class="dd-item ">
+        <a href="/emily-intro/structure/emily/">
+        Emily
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/emily-intro/structure/trainer/" title="Trainer" class="dd-item ">
+        <a href="/emily-intro/structure/trainer/">
+        Trainer
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/emily-intro/structure/evaluator/" title="Evaluator" class="dd-item ">
+        <a href="/emily-intro/structure/evaluator/">
+        Evaluator
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/emily-intro/structure/predictor/" title="Predictor" class="dd-item ">
+        <a href="/emily-intro/structure/predictor/">
+        Predictor
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/emily-intro/structure/model/" title="Model" class="dd-item ">
+        <a href="/emily-intro/structure/model/">
+        Model
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
   
  
 
@@ -517,7 +660,105 @@
         
 
 
-<p>Once you have set up your API, it is time to test that it actually works. There are multiple ways to do this, and you will see here three different</p>
+<p>Once you have set up your API and it is running, it is time to test that it actually works. There are multiple ways to do this, and you will see here three different tools for testing your API:</p>
+<ul>
+<li>Swagger UI</li>
+<li>Postman</li>
+<li>curl</li>
+</ul>
+<p>We will assume here that you are running your API on <code>http://localhost:4242</code>. Adjust accordingly if you are using a different host or port.</p>
+
+
+<div class="tab-panel">
+    <div class="tab-nav">
+    
+        <button
+          data-tab-item="Swagger UI"
+          data-tab-group="default"
+          class="tab-nav-button btn active"
+          onclick="switchTab('default','Swagger UI')"
+         >Swagger UI</button>
+    
+        <button
+          data-tab-item="Postman"
+          data-tab-group="default"
+          class="tab-nav-button btn "
+          onclick="switchTab('default','Postman')"
+         >Postman</button>
+    
+        <button
+          data-tab-item="curl"
+          data-tab-group="default"
+          class="tab-nav-button btn "
+          onclick="switchTab('default','curl')"
+         >curl</button>
+    
+    </div>
+    <div class="tab-content">
+        
+        <div data-tab-item="Swagger UI" data-tab-group="default" class="tab-item active">
+            
+
+Emily projects use FastAPI, which automatically supports Swagger UI. This gives you automatic documentation of your API, as well as a graphical interface for testing the API. To access Swagger UI, go to <a href="http://localhost:4242/docs", target="_blank">http://localhost:4242/docs</a> in your browser, where you will see something similar to the below image.
+
+<img src="/images/swaggerui/swaggerui.png", alt="Swagger UI">
+
+To test e.g. the evaluate endpoint, click its bar. It will then unfold, giving you a lot of information about the endpoint, such as the format of a request to the endpoint and the possible responses it can give. In order to test it, click the "Try it out" button.
+
+<img src="/images/swaggerui/tryit.png", alt="Try it out button">
+
+You will then be able to edit the request body before sending the request. Make appropriate changes, such as changing the path to the model being evaluated, and then click the "Execute" button below the text field.
+
+<img src="/images/swaggerui/execute.png", alt="Execute button">
+
+You will then get the result of the endpoint in a section below. In this case, the result is an evaluation score for the specified model.
+
+<img src="/images/swaggerui/result.png", alt="Result being displayed">
+
+
+        </div>
+        
+        <div data-tab-item="Postman" data-tab-group="default" class="tab-item ">
+            
+
+Postman is a standalone app that can be downloaded <a href="https://www.postman.com/downloads/", target="_blank">here</a>. Start Postman and create a new request. Choose a POST request, and enter <code>http://localhost:4242</code> as the request URL.
+
+<img src="/images/postman/request.png", alt="Making a new request">
+
+Next we need to specify the body of the request. To do this, press the "Body" button below the URL field and choose the "raw" option below it. Now you can specify the request body in JSON format in the text field below. For example, to specify the model path, enter
+<code>{
+    "model_path": "myModel.save"
+}</code>
+
+<img src="/images/postman/body.png", alt="Making a new request">
+
+Now you can simply press the "Send" button, and the request will be sent to the API and a response will be shown at the bottom of the window. In this case the response is an evaluation score for the specified model.
+
+<img src="/images/postman/response.png", alt="Response from the API">
+
+
+        </div>
+        
+        <div data-tab-item="curl" data-tab-group="default" class="tab-item ">
+            
+
+curl is a command-line tool that can be downloaded <a href="https://curl.se/download.html", target="_blank">here</a>. Once you have installed curl, you can invoke it from the terminal by simply typing <code>curl</code>.
+
+The template for making an API request with curl is<br/>
+
+<code>curl --header "Content-Type: application/json" --request POST --data '&lt;JSON data&gt;' &lt;URL&gt;</code><br/>
+
+For example, to call the evaluate endpoint with a specific model, we can use<br/>
+
+<code>curl --header "Content-Type: application/json" --request POST --data '{"model_path":"myModel.save"}' http://0.0.0.0:4242/api/evaluate</code>
+
+
+
+        </div>
+        
+    </div>
+</div>
+
 
 
 <footer class="footline">
@@ -563,6 +804,8 @@
 
                     
                     
+                        
+                    
                     
 
                     
@@ -610,6 +853,102 @@
                     
                     
 
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
             
         
@@ -809,19 +1148,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1633007291"></script>
-    <script src="/js/perfect-scrollbar.min.js?1633007291"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1633007291"></script>
-    <script src="/js/jquery.sticky.js?1633007291"></script>
-    <script src="/js/featherlight.min.js?1633007291"></script>
-    <script src="/js/highlight.pack.js?1633007291"></script>
+    <script src="/js/clipboard.min.js?1633435336"></script>
+    <script src="/js/perfect-scrollbar.min.js?1633435336"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1633435336"></script>
+    <script src="/js/jquery.sticky.js?1633435336"></script>
+    <script src="/js/featherlight.min.js?1633435336"></script>
+    <script src="/js/highlight.pack.js?1633435336"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1633007291"></script>
-    <script src="/js/learn.js?1633007291"></script>
-    <script src="/js/hugo-learn.js?1633007291"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1633435336"></script>
+    <script src="/js/learn.js?1633435336"></script>
+    <script src="/js/hugo-learn.js?1633435336"></script>
     
         
-            <script src="/mermaid/mermaid.js?1633007291"></script>
+            <script src="/mermaid/mermaid.js?1633435336"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

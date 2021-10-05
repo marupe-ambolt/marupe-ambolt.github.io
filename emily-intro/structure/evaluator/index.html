@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Create Emily project :: My New Hugo Site</title>
+    <title>Evaluator :: My New Hugo Site</title>
 
     
     <link href="/css/nucleus.css?1633435336" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/emily-intro/build/">
+  <body class="" data-url="/emily-intro/structure/evaluator/">
     <nav id="sidebar" class="">
 
 
@@ -154,7 +154,7 @@
  
   
     
-      <li data-nav-id="/emily-intro/build/" title="Create Emily project" class="dd-item active">
+      <li data-nav-id="/emily-intro/build/" title="Create Emily project" class="dd-item ">
         <a href="/emily-intro/build/">
         Create Emily project
         
@@ -176,7 +176,7 @@
   
     
     <li data-nav-id="/emily-intro/structure/" title="Structure" class="dd-item
-        
+        parent
         
         
         ">
@@ -265,7 +265,7 @@
  
   
     
-      <li data-nav-id="/emily-intro/structure/evaluator/" title="Evaluator" class="dd-item ">
+      <li data-nav-id="/emily-intro/structure/evaluator/" title="Evaluator" class="dd-item active">
         <a href="/emily-intro/structure/evaluator/">
         Evaluator
         
@@ -624,7 +624,13 @@
             
           
           
-            <a href='/'>My New Hugo Site</a> > <a href='/emily-intro/'>Emily intro</a> > Create Emily project
+            
+            
+          
+          
+            <a href='/'>My New Hugo Site</a> > <a href='/emily-intro/'>Emily intro</a> > <a href='/emily-intro/structure/'>Structure</a> > Evaluator
+          
+        
           
         
           
@@ -637,7 +643,18 @@
                 
                     <div class="progress">
     <div class="wrapper">
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#1-load-the-model">1. Load the model</a></li>
+        <li><a href="#2-load-the-test-data">2. Load the test data</a></li>
+        <li><a href="#3-preproces-the-test-data">3. Preproces the test data</a></li>
+        <li><a href="#4-evaluate-the-model-on-the-test-data">4. Evaluate the model on the test data</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -653,50 +670,41 @@
           
             <h1>
               
-              Create Emily project
+              Evaluator
             </h1>
           
 
         
 
 
-<p>To create an Emily project, type <code>emily build</code> in a terminal. You will be prompted for a project name. Enter one and press enter.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">? Emily: Project name:
- ‣ my-emily-project
-</code></pre></div><p>Next you will be asked to choose an Emily template. These are code templates that will save you time in setting up boilerplate code for your projects. They come in different flavours, depending on what kind of project you are making. The machine learning API template should serve you well for most machine learning projects.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">? Emily: Which Emily template do you want to use?
-(Use arrow keys, confirm with ⎆)
- … 
-  Default - Minimal project with hello world script
-  API - Simple project with API set up and ready
-▸ Machine learning API - Machine learning template with API
-  Deep neural network API - Deep neural network template with an API using Pytorch
-  Machine learning gRPC - Machine learning template with gRPC
-</code></pre></div><p>Next you will select an Emily Docker image through a few choices. The first choice is what kind of project you will be doing. The slim project type should be enough for many machine learning projects, but if you already know that you will do a more specialised project, you could select another project type. Remember that you can always add more python packages after the project has been created.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">? Emily: Which project type best fits your case?
-(Use arrow keys, confirm with ⎆)
- … 
-  Minimal (contains just enough to run an API)
-▸ Slim (contains essential Machine Learning packages)
-  Computer Vision
-  Natural Language Processing
-</code></pre></div><p>Next you will choose whether to use deep learning or not, and which deep learning platform you wish to use.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">? Emily: Which deep learning platform do you want to use?
-(Use arrow keys, confirm with ⎆)
- … 
-▸ No deep learning platform
-  PyTorch
-  Tensorflow
-</code></pre></div><p>Finally, choose the editor that you want to open the project in. If you change your mind later, you can always open the project in another editor by running <code>emily open</code> with the <code>--editor</code> flag.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">? Emily: Which editor do you want to use?
-(Use arrow keys, confirm with ⎆)
- … 
-▸ Visual Studio Code
-  PyCharm
-  Jupyter Notebook
-  Jupyter Lab
-</code></pre></div><p>Emily will now build and start a Docker container and then open the project in whichever editor you chose.</p>
-
+<p>The evaluator implements the behaviour for evaluating a model. The steps for doing so are the following:</p>
+<ol>
+<li>Load the model</li>
+<li>Load the test data</li>
+<li>Preprocess the test data</li>
+<li>Evaluate the model on the test data</li>
+</ol>
+<h3 id="1-load-the-model">1. Load the model</h3>
+<p>In order to load the model, use the <code>load_model</code> method on the model class. Here is how this is done by default in the template:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">if</span> model_path <span style="color:#f92672">!=</span> self<span style="color:#f92672">.</span>model_path:
+    self<span style="color:#f92672">.</span>model <span style="color:#f92672">=</span> Model()
+    self<span style="color:#f92672">.</span>model<span style="color:#f92672">.</span>load_model(model_path)
+    self<span style="color:#f92672">.</span>model_path <span style="color:#f92672">=</span> model_path
+</code></pre></div><p>This ensures that the same model is not loaded twice, which may be time-consuming for large models. However, if you are using small models and you want to be able to reuse the same model when retraining, the if-check may not be necessary.</p>
+<h3 id="2-load-the-test-data">2. Load the test data</h3>
+<p>Loading the test data must be implemented in the <code>_load_test_data</code> method. For example, if you are reading the test data from a csv file, it can be done with pandas in the following way:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">_load_test_data</span>(self, dataset_path):
+    test_dataset <span style="color:#f92672">=</span> pandas<span style="color:#f92672">.</span>read_csv(dataset_path)
+    <span style="color:#66d9ef">return</span> test_dataset
+</code></pre></div><h3 id="3-preproces-the-test-data">3. Preproces the test data</h3>
+<p>Preprocessing must be implemented in the <code>_preprocess_test_data</code> method. For example, this could involve dropping those parts of the data with missing data:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">_preprocess_test_data</span>(self, test_data):
+    preprocessed_test_data <span style="color:#f92672">=</span> test_data<span style="color:#f92672">.</span>dropna()
+    <span style="color:#66d9ef">return</span> preprocessed_test_data
+</code></pre></div><h3 id="4-evaluate-the-model-on-the-test-data">4. Evaluate the model on the test data</h3>
+<p>Finally, the actual evaluation of the model will be done in the <code>evaluate</code> method. For example, if using an scikit-learn model, evaluating can be done this way:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">score <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>model<span style="color:#f92672">.</span>score(X, y)
+</code></pre></div>
 
 <footer class="footline">
 	
@@ -768,7 +776,6 @@
             
                 
                     
-                    
                 
                 
 
@@ -785,8 +792,6 @@
             
                 
                     
-                        
-                        
                     
                 
                 
@@ -801,21 +806,8 @@
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
                         
-            
-            
-                
+                        
                     
                 
                 
@@ -864,6 +856,26 @@
             
             
                 
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
                     
                 
                 
@@ -1069,10 +1081,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/emily-intro/install/" title="Install Emily"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/emily-intro/structure/trainer/" title="Trainer"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/emily-intro/structure/" title="Structure" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/emily-intro/structure/predictor/" title="Predictor" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

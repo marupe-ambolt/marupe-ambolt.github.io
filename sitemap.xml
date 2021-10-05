@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://example.org/emily-intro/structure/api/</loc>
+    <lastmod>2021-09-27T09:50:28+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://example.org/deploy/structure/</loc>
     <lastmod>2021-09-27T09:50:28+02:00</lastmod>
   </url>
@@ -33,6 +38,11 @@
   </url>
   
   <url>
+    <loc>http://example.org/emily-intro/structure/emily/</loc>
+    <lastmod>2021-09-27T09:50:28+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://example.org/deploy/</loc>
     <lastmod>2021-09-27T09:39:54+02:00</lastmod>
   </url>
@@ -53,6 +63,16 @@
   </url>
   
   <url>
+    <loc>http://example.org/emily-intro/structure/trainer/</loc>
+    <lastmod>2021-09-27T09:50:28+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/emily-intro/structure/evaluator/</loc>
+    <lastmod>2021-09-27T09:50:28+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://example.org/emily-intro/share/</loc>
     <lastmod>2021-09-27T09:50:28+02:00</lastmod>
   </url>
@@ -64,6 +84,16 @@
   
   <url>
     <loc>http://example.org/deploy/structure/eval/</loc>
+    <lastmod>2021-09-27T09:50:28+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/emily-intro/structure/predictor/</loc>
+    <lastmod>2021-09-27T09:50:28+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/emily-intro/structure/model/</loc>
     <lastmod>2021-09-27T09:50:28+02:00</lastmod>
   </url>
   

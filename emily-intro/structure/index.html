@@ -12,20 +12,20 @@
     <title>Structure :: My New Hugo Site</title>
 
     
-    <link href="/css/nucleus.css?1633007291" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1633007291" rel="stylesheet">
-    <link href="/css/hybrid.css?1633007291" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1633007291" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1633007291" rel="stylesheet">
-    <link href="/css/auto-complete.css?1633007291" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1633007291" rel="stylesheet">
-    <link href="/css/theme.css?1633007291" rel="stylesheet">
-    <link href="/css/tabs.css?1633007291" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1633007291" rel="stylesheet">
+    <link href="/css/nucleus.css?1633435337" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1633435337" rel="stylesheet">
+    <link href="/css/hybrid.css?1633435337" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1633435337" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1633435337" rel="stylesheet">
+    <link href="/css/auto-complete.css?1633435337" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1633435337" rel="stylesheet">
+    <link href="/css/theme.css?1633435337" rel="stylesheet">
+    <link href="/css/tabs.css?1633435337" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1633435337" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1633007291"></script>
+    <script src="/js/jquery-3.3.1.min.js?1633435337"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -70,14 +70,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1633007291"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1633007291"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1633435337"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1633435337"></script>
 <script type="text/javascript">
     
         var baseurl = "http:\/\/example.org\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1633007291"></script>
+<script type="text/javascript" src="/js/search.js?1633435337"></script>
 
     
   </div>
@@ -117,6 +117,8 @@
       
         <ul>
           
+          
+            
           
           
 
@@ -173,13 +175,154 @@
  
   
     
-      <li data-nav-id="/emily-intro/structure/" title="Structure" class="dd-item active">
-        <a href="/emily-intro/structure/">
-        Structure
+    <li data-nav-id="/emily-intro/structure/" title="Structure" class="dd-item
+        parent
+        active
+        
+        ">
+      <a href="/emily-intro/structure/">
+          Structure
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/emily-intro/structure/api/" title="API" class="dd-item ">
+        <a href="/emily-intro/structure/api/">
+        API
         
         </a>
     </li>
      
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/emily-intro/structure/emily/" title="Emily" class="dd-item ">
+        <a href="/emily-intro/structure/emily/">
+        Emily
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/emily-intro/structure/trainer/" title="Trainer" class="dd-item ">
+        <a href="/emily-intro/structure/trainer/">
+        Trainer
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/emily-intro/structure/evaluator/" title="Evaluator" class="dd-item ">
+        <a href="/emily-intro/structure/evaluator/">
+        Evaluator
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/emily-intro/structure/predictor/" title="Predictor" class="dd-item ">
+        <a href="/emily-intro/structure/predictor/">
+        Predictor
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/emily-intro/structure/model/" title="Model" class="dd-item ">
+        <a href="/emily-intro/structure/model/">
+        Model
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
   
  
 
@@ -517,10 +660,24 @@
         
 
 
-<p>Structure of an Emily project</p>
+
+	<p>Here you will see an overview of the structure of an Emily machine learning project with an API. Other Emily templates may omit some of these parts, and other templates may contain additional parts, but most templates use this structure as a baseline.</p>
+<p>At its core, an Emily machine learning project consists of six parts:</p>
+<ul>
+<li><strong>API</strong>: The <strong>API</strong> is where users or other services will access the service. It has endpoints for training, evaluating, and predicting using a machine learning model. The <strong>API</strong> calls the <strong>Trainer</strong>, <strong>Evaluator</strong>, and <strong>Predictor</strong> through the <strong>Emily</strong> class.</li>
+<li><strong>Emily</strong>: The <strong>Emily</strong> class is a wrapper class whose only purpose is to aggregate the <strong>Trainer</strong>, <strong>Evaluator</strong>, and <strong>Predictor</strong>.</li>
+<li><strong>Trainer</strong>: The <strong>Trainer</strong> class specifies how a model is trained when the train endpoint is called in the <strong>API</strong>. The <strong>Trainer</strong> makes use of the <strong>Model</strong> class to instantiate a machine learning model and to save it when the training is complete.</li>
+<li><strong>Evaluator</strong>: The <strong>Evaluator</strong> class specifies how a model is evaluated when the evaluate endpoint is called in the <strong>API</strong>. The <strong>Evaluator</strong> makes use of the <strong>Model</strong> class to load a machine learning model that has already been trained by the <strong>Trainer</strong>.</li>
+<li><strong>Predictor</strong>: The <strong>Predictor</strong> class specifies how to use a model to make predictions when the predict endpoint is called in the <strong>API</strong>. The <strong>Predictor</strong> makes use of the <strong>Model</strong> class to load a machine learning model that has already been trained by the <strong>Trainer</strong>.</li>
+<li><strong>Model</strong>: The <strong>Model</strong> class specifies what kind of machine learning model should be used in the project, and also how this kind of model can be saved and loaded from memory.</li>
+</ul>
+<p><img src="/images/structure/emily-overview.png" alt="Overview of the structure of an Emily project"></p>
 
 
-<footer class="footline">
+
+
+
+<footer class=" footline" >
 	
 </footer>
 
@@ -561,6 +718,8 @@
 
                     
                     
+                        
+                    
                     
 
                     
@@ -613,6 +772,22 @@
                     
 
                     
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
             
         
                     
@@ -621,8 +796,88 @@
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
                         
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
                         
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -796,7 +1051,7 @@
 			<a class="nav nav-prev" href="/emily-intro/build/" title="Create Emily project"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/emily-intro/share/" title="Share Emily projects" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/emily-intro/structure/api/" title="API" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -806,19 +1061,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1633007291"></script>
-    <script src="/js/perfect-scrollbar.min.js?1633007291"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1633007291"></script>
-    <script src="/js/jquery.sticky.js?1633007291"></script>
-    <script src="/js/featherlight.min.js?1633007291"></script>
-    <script src="/js/highlight.pack.js?1633007291"></script>
+    <script src="/js/clipboard.min.js?1633435337"></script>
+    <script src="/js/perfect-scrollbar.min.js?1633435337"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1633435337"></script>
+    <script src="/js/jquery.sticky.js?1633435337"></script>
+    <script src="/js/featherlight.min.js?1633435337"></script>
+    <script src="/js/highlight.pack.js?1633435337"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1633007291"></script>
-    <script src="/js/learn.js?1633007291"></script>
-    <script src="/js/hugo-learn.js?1633007291"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1633435337"></script>
+    <script src="/js/learn.js?1633435337"></script>
+    <script src="/js/hugo-learn.js?1633435337"></script>
     
         
-            <script src="/mermaid/mermaid.js?1633007291"></script>
+            <script src="/mermaid/mermaid.js?1633435337"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
@@ -828,4 +1083,3 @@
 
   </body>
 </html>
-
