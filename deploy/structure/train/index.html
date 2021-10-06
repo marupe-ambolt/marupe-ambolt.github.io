@@ -9,23 +9,23 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Training :: My New Hugo Site</title>
+    <title>Training :: Emily</title>
 
     
-    <link href="/css/nucleus.css?1633435336" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1633435336" rel="stylesheet">
-    <link href="/css/hybrid.css?1633435336" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1633435336" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1633435336" rel="stylesheet">
-    <link href="/css/auto-complete.css?1633435336" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1633435336" rel="stylesheet">
-    <link href="/css/theme.css?1633435336" rel="stylesheet">
-    <link href="/css/tabs.css?1633435336" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1633435336" rel="stylesheet">
+    <link href="/css/nucleus.css?1633529299" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1633529299" rel="stylesheet">
+    <link href="/css/hybrid.css?1633529299" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1633529299" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1633529299" rel="stylesheet">
+    <link href="/css/auto-complete.css?1633529299" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1633529299" rel="stylesheet">
+    <link href="/css/theme.css?1633529299" rel="stylesheet">
+    <link href="/css/tabs.css?1633529299" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1633529299" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1633435336"></script>
+    <script src="/js/jquery-3.3.1.min.js?1633529299"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -70,14 +70,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1633435336"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1633435336"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1633529299"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1633529299"></script>
 <script type="text/javascript">
     
         var baseurl = "http:\/\/example.org\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1633435336"></script>
+<script type="text/javascript" src="/js/search.js?1633529299"></script>
 
     
   </div>
@@ -628,7 +628,7 @@
             
           
           
-            <a href='/'>My New Hugo Site</a> > <a href='/deploy/'>Deploy to production</a> > <a href='/deploy/structure/'>Code structure</a> > Training
+            <a href='/'></a> > <a href='/deploy/'>Deploy to production</a> > <a href='/deploy/structure/'>Code structure</a> > Training
           
         
           
@@ -700,12 +700,12 @@ To do this, we first look at <a href="https://nbviewer.jupyter.org/github/SDS-AA
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> sklearn.model_selection <span style="color:#f92672">import</span> train_test_split
 X_train, X_test, y_train, y_test <span style="color:#f92672">=</span> train_test_split(X, y, test_size <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.2</span>, random_state <span style="color:#f92672">=</span> <span style="color:#ae81ff">21</span>)
 </code></pre></div><p>We put these parts of <a href="https://nbviewer.jupyter.org/github/SDS-AAU/SDS-master/blob/master/M1/notebooks/SML_application_py.ipynb">the notebook</a> into the <code>_preprocess_train_data()</code> method:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">_preprocess_train_data</span>(self, data):
-    data<span style="color:#f92672">.</span>dropna(inplace<span style="color:#f92672">=</span>True)        
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">_preprocess_train_data</span>(self, train_data):
+    train_data<span style="color:#f92672">.</span>dropna(inplace<span style="color:#f92672">=</span>True)        
 
-    y <span style="color:#f92672">=</span> data[<span style="color:#e6db74">&#39;culmen_length_mm&#39;</span>]
-    X_dum <span style="color:#f92672">=</span> data<span style="color:#f92672">.</span>species_short<span style="color:#f92672">.</span>str<span style="color:#f92672">.</span>get_dummies()
-    X <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>concat([data<span style="color:#f92672">.</span>iloc[:,<span style="color:#ae81ff">4</span>:<span style="color:#ae81ff">6</span>], X_dum], axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+    y <span style="color:#f92672">=</span> train_data[<span style="color:#e6db74">&#39;culmen_length_mm&#39;</span>]
+    X_dum <span style="color:#f92672">=</span> train_data<span style="color:#f92672">.</span>species_short<span style="color:#f92672">.</span>str<span style="color:#f92672">.</span>get_dummies()
+    X <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>concat([train_data<span style="color:#f92672">.</span>iloc[:,<span style="color:#ae81ff">4</span>:<span style="color:#ae81ff">6</span>], X_dum], axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
     X<span style="color:#f92672">.</span>iloc[:,<span style="color:#ae81ff">0</span>:<span style="color:#ae81ff">2</span>] <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>model<span style="color:#f92672">.</span>scaler<span style="color:#f92672">.</span>fit_transform(X<span style="color:#f92672">.</span>iloc[:,<span style="color:#ae81ff">0</span>:<span style="color:#ae81ff">2</span>])
     
     X_train, X_test, y_train, y_test <span style="color:#f92672">=</span> train_test_split(X, y, test_size<span style="color:#f92672">=</span><span style="color:#ae81ff">0.2</span>, random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">21</span>)
@@ -1177,19 +1177,19 @@ X_train, X_test, y_train, y_test <span style="color:#f92672">=</span> train_test
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1633435337"></script>
-    <script src="/js/perfect-scrollbar.min.js?1633435337"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1633435337"></script>
-    <script src="/js/jquery.sticky.js?1633435337"></script>
-    <script src="/js/featherlight.min.js?1633435337"></script>
-    <script src="/js/highlight.pack.js?1633435337"></script>
+    <script src="/js/clipboard.min.js?1633529299"></script>
+    <script src="/js/perfect-scrollbar.min.js?1633529299"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1633529299"></script>
+    <script src="/js/jquery.sticky.js?1633529299"></script>
+    <script src="/js/featherlight.min.js?1633529299"></script>
+    <script src="/js/highlight.pack.js?1633529299"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1633435337"></script>
-    <script src="/js/learn.js?1633435337"></script>
-    <script src="/js/hugo-learn.js?1633435337"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1633529299"></script>
+    <script src="/js/learn.js?1633529299"></script>
+    <script src="/js/hugo-learn.js?1633529299"></script>
     
         
-            <script src="/mermaid/mermaid.js?1633435337"></script>
+            <script src="/mermaid/mermaid.js?1633529299"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
