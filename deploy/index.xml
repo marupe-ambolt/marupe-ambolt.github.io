@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Deploy to production on Emily</title>
+    <title>Deploying a service on Emily</title>
     <link>http://example.org/deploy/</link>
-    <description>Recent content in Deploy to production on Emily</description>
+    <description>Recent content in Deploying a service on Emily</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 27 Sep 2021 09:39:54 +0200</lastBuildDate>
@@ -18,7 +18,7 @@
       
       <guid>http://example.org/deploy/test/</guid>
       <description>Once you have set up your API, it is time to test that it actually works. There are multiple ways to do this, and you will see here three different tools for testing your API:
- Swagger UI Postman curl  First of all, you should run your api. In an emily project, you can do this by running the API script with python api.py inside the container. We will assume here that you are running your API on http://localhost:4242.</description>
+ Swagger UI Postman curl  First of all, you should run your API. In an emily project, you can do this by running the API script with python api.py inside the container. We will assume that you are running your API on http://localhost:4242.</description>
     </item>
     
     <item>
@@ -27,8 +27,8 @@
       <pubDate>Mon, 27 Sep 2021 09:50:28 +0200</pubDate>
       
       <guid>http://example.org/deploy/deploy/</guid>
-      <description>Getting your service into production involves deploying it to a server or similar where it is hosted and can be accessed by clients, apps, or other services. Once you have a server setup that you want to deploy to, Emily can help you with the actual deployment.
-To deploy, run emily deploy server &amp;lt;project name&amp;gt;. First you will be asked which file to run when deployed. For Emily projects this is usually api.</description>
+      <description>Deploying a service involves hosting it on a server or similar where it can be accessed by clients, apps, or other services. Once you have a server setup that you want to deploy to, Emily can help you with the actual deployment.
+To deploy, run emily deploy server &amp;lt;project name&amp;gt;. First you will be asked which file to run when deployed. For Emily projects this is usually api.py. Next you must choose whether to use GPU functionality on the server you deploy on.</description>
     </item>
     
   </channel>

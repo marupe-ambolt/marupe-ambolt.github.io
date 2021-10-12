@@ -58,22 +58,22 @@
   </url>
   
   <url>
+    <loc>http://example.org/emily-intro/structure/model/</loc>
+    <lastmod>2021-09-27T09:50:28+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://example.org/emily-intro/structure/</loc>
     <lastmod>2021-09-27T09:50:28+02:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/emily-intro/structure/trainer/</loc>
-    <lastmod>2021-09-27T09:50:28+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://example.org/emily-intro/structure/evaluator/</loc>
-    <lastmod>2021-09-27T09:50:28+02:00</lastmod>
-  </url>
-  
-  <url>
     <loc>http://example.org/emily-intro/share/</loc>
+    <lastmod>2021-09-27T09:50:28+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/emily-intro/structure/trainer/</loc>
     <lastmod>2021-09-27T09:50:28+02:00</lastmod>
   </url>
   
@@ -88,17 +88,17 @@
   </url>
   
   <url>
-    <loc>http://example.org/emily-intro/structure/predictor/</loc>
-    <lastmod>2021-09-27T09:50:28+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://example.org/emily-intro/structure/model/</loc>
+    <loc>http://example.org/emily-intro/structure/evaluator/</loc>
     <lastmod>2021-09-27T09:50:28+02:00</lastmod>
   </url>
   
   <url>
     <loc>http://example.org/deploy/structure/predict/</loc>
+    <lastmod>2021-09-27T09:50:28+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/emily-intro/structure/predictor/</loc>
     <lastmod>2021-09-27T09:50:28+02:00</lastmod>
   </url>
   

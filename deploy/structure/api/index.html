@@ -12,20 +12,20 @@
     <title>API :: Emily</title>
 
     
-    <link href="/css/nucleus.css?1633529299" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1633529299" rel="stylesheet">
-    <link href="/css/hybrid.css?1633529299" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1633529299" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1633529299" rel="stylesheet">
-    <link href="/css/auto-complete.css?1633529299" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1633529299" rel="stylesheet">
-    <link href="/css/theme.css?1633529299" rel="stylesheet">
-    <link href="/css/tabs.css?1633529299" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1633529299" rel="stylesheet">
+    <link href="/css/nucleus.css?1634045323" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1634045323" rel="stylesheet">
+    <link href="/css/hybrid.css?1634045323" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1634045323" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1634045323" rel="stylesheet">
+    <link href="/css/auto-complete.css?1634045323" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1634045323" rel="stylesheet">
+    <link href="/css/theme.css?1634045323" rel="stylesheet">
+    <link href="/css/tabs.css?1634045323" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1634045323" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1633529299"></script>
+    <script src="/js/jquery-3.3.1.min.js?1634045323"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -70,14 +70,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1633529299"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1633529299"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1634045323"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1634045323"></script>
 <script type="text/javascript">
     
         var baseurl = "http:\/\/example.org\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1633529299"></script>
+<script type="text/javascript" src="/js/search.js?1634045323"></script>
 
     
   </div>
@@ -175,13 +175,13 @@
  
   
     
-    <li data-nav-id="/emily-intro/structure/" title="Structure" class="dd-item
+    <li data-nav-id="/emily-intro/structure/" title="Template structure" class="dd-item
         
         
         
         ">
       <a href="/emily-intro/structure/">
-          Structure
+          Template structure
           
       </a>
       
@@ -226,6 +226,27 @@
       <li data-nav-id="/emily-intro/structure/emily/" title="Emily" class="dd-item ">
         <a href="/emily-intro/structure/emily/">
         Emily
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/emily-intro/structure/model/" title="Model" class="dd-item ">
+        <a href="/emily-intro/structure/model/">
+        Model
         
         </a>
     </li>
@@ -298,27 +319,6 @@
 
             
           
-            
-            
-
-
-
-
- 
-  
-    
-      <li data-nav-id="/emily-intro/structure/model/" title="Model" class="dd-item ">
-        <a href="/emily-intro/structure/model/">
-        Model
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
         
         </ul>
       
@@ -365,13 +365,13 @@
  
   
     
-    <li data-nav-id="/deploy/" title="Deploy to production" class="dd-item
+    <li data-nav-id="/deploy/" title="Deploying a service" class="dd-item
         parent
         
         
         ">
       <a href="/deploy/">
-          <b>2. </b>Deploy to production
+          <b>2. </b>Deploying a service
           
       </a>
       
@@ -394,13 +394,13 @@
  
   
     
-    <li data-nav-id="/deploy/structure/" title="Code structure" class="dd-item
+    <li data-nav-id="/deploy/structure/" title="Converting a notebook to API" class="dd-item
         parent
         
         
         ">
       <a href="/deploy/structure/">
-          Code structure
+          Converting a notebook to API
           
       </a>
       
@@ -628,7 +628,7 @@
             
           
           
-            <a href='/'></a> > <a href='/deploy/'>Deploy to production</a> > <a href='/deploy/structure/'>Code structure</a> > API
+            <a href='/'></a> > <a href='/deploy/'>Deploying a service</a> > <a href='/deploy/structure/'>Converting a notebook to API</a> > API
           
         
           
@@ -682,7 +682,7 @@
 </ul>
 <p>We see in <a href="https://nbviewer.jupyter.org/github/SDS-AAU/SDS-master/blob/master/M1/notebooks/SML_application_py.ipynb">the notebook</a> that the data is taken from an online repository:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">penguins <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;https://github.com/allisonhorst/palmerpenguins/raw/5b5891f01b52ae26ad8cb9755ec93672f49328a8/data/penguins_size.csv&#34;</span>)
-</code></pre></div><p>This means that we can remove <code>dataset_path</code> as an input to the <code>/api/train/</code> and <code>/api/evaluate/</code> endpoints, since we will use this fixed dataset always:</p>
+</code></pre></div><p>Since this is the only dataset that we will use, we can remove <code>dataset_path</code> as an input to the <code>/api/train/</code> and <code>/api/evaluate/</code> endpoints. If we had several datasets, for example if we wanted to compare models trained on different datasets, then the <code>dataset_path</code> parameter would have allowed us to choose which dataset to use whenever we called the endpoint.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TrainItem</span>(BaseModel):
     save_path: str
 
@@ -714,7 +714,8 @@
     <span style="color:#66d9ef">return</span> {<span style="color:#e6db74">&#39;result&#39;</span>: emily<span style="color:#f92672">.</span>predict(item)}
 </code></pre></div><h3 id="full-file">Full file</h3>
 <p>The <code>api.py</code> file now looks like this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> uvicorn
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+<span style="color:#f92672">import</span> uvicorn
 <span style="color:#f92672">import</span> os
 
 <span style="color:#f92672">from</span> fastapi <span style="color:#f92672">import</span> FastAPI
@@ -727,6 +728,9 @@
 <span style="color:#f92672">from</span> utilities.logging.config <span style="color:#f92672">import</span> initialize_logging, initialize_logging_middleware
 
 <span style="color:#f92672">from</span> ml.emily <span style="color:#f92672">import</span> Emily
+<span style="color:#f92672">from</span> static.render <span style="color:#f92672">import</span> render
+<span style="color:#f92672">from</span> starlette.responses <span style="color:#f92672">import</span> HTMLResponse
+
 
 emily <span style="color:#f92672">=</span> Emily()
 
@@ -759,20 +763,6 @@ app<span style="color:#f92672">.</span>add_middleware(
 )
 
 
-<span style="color:#a6e22e">@app.get</span>(<span style="color:#e6db74">&#39;/api/health&#39;</span>)
-<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">health_check</span>():
-    <span style="color:#66d9ef">return</span> {
-        <span style="color:#e6db74">&#39;uptime&#39;</span>: get_uptime(),
-        <span style="color:#e6db74">&#39;status&#39;</span>: <span style="color:#e6db74">&#39;UP&#39;</span>,
-        <span style="color:#e6db74">&#39;port&#39;</span>: os<span style="color:#f92672">.</span>environ<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#34;HOST_PORT&#34;</span>),
-    }
-
-
-<span style="color:#a6e22e">@app.get</span>(<span style="color:#e6db74">&#39;/api&#39;</span>)
-<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">hello</span>():
-    <span style="color:#66d9ef">return</span> f<span style="color:#e6db74">&#39;The API is running (uptime: {get_uptime()})&#39;</span>
-
-
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TrainItem</span>(BaseModel):
     save_path: str
 
@@ -801,6 +791,25 @@ app<span style="color:#f92672">.</span>add_middleware(
 <span style="color:#a6e22e">@app.post</span>(<span style="color:#e6db74">&#39;/api/predict&#39;</span>)
 <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">predict</span>(item: PredictItem):
     <span style="color:#66d9ef">return</span> {<span style="color:#e6db74">&#39;result&#39;</span>: emily<span style="color:#f92672">.</span>predict(item)}
+
+
+<span style="color:#a6e22e">@app.get</span>(<span style="color:#e6db74">&#39;/api&#39;</span>)
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">hello</span>():
+    <span style="color:#66d9ef">return</span> {
+        <span style="color:#e6db74">&#34;service&#34;</span>: os<span style="color:#f92672">.</span>environ<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#39;COMPOSE_PROJECT_NAME&#39;</span>),
+        <span style="color:#e6db74">&#34;uptime&#34;</span>: get_uptime()
+    }
+
+
+<span style="color:#a6e22e">@app.get</span>(<span style="color:#e6db74">&#39;/&#39;</span>)
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">index</span>():
+    <span style="color:#66d9ef">return</span> HTMLResponse(
+        render(
+            <span style="color:#e6db74">&#39;static/index.html&#39;</span>,
+            host<span style="color:#f92672">=</span>os<span style="color:#f92672">.</span>environ<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#39;HOST_IP&#39;</span>),
+            port<span style="color:#f92672">=</span>os<span style="color:#f92672">.</span>environ<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#39;CONTAINER_PORT&#39;</span>)
+        )
+    )
 
 
 <span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;__main__&#39;</span>:
@@ -1184,7 +1193,7 @@ app<span style="color:#f92672">.</span>add_middleware(
 	 
 	 
 		
-			<a class="nav nav-prev" href="/deploy/structure/" title="Code structure"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/deploy/structure/" title="Converting a notebook to API"> <i class="fa fa-chevron-left"></i></a>
 		
 		
 			<a class="nav nav-next" href="/deploy/structure/model/" title="Model" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
@@ -1197,19 +1206,19 @@ app<span style="color:#f92672">.</span>add_middleware(
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1633529299"></script>
-    <script src="/js/perfect-scrollbar.min.js?1633529299"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1633529299"></script>
-    <script src="/js/jquery.sticky.js?1633529299"></script>
-    <script src="/js/featherlight.min.js?1633529299"></script>
-    <script src="/js/highlight.pack.js?1633529299"></script>
+    <script src="/js/clipboard.min.js?1634045323"></script>
+    <script src="/js/perfect-scrollbar.min.js?1634045323"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1634045323"></script>
+    <script src="/js/jquery.sticky.js?1634045323"></script>
+    <script src="/js/featherlight.min.js?1634045323"></script>
+    <script src="/js/highlight.pack.js?1634045323"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1633529299"></script>
-    <script src="/js/learn.js?1633529299"></script>
-    <script src="/js/hugo-learn.js?1633529299"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1634045323"></script>
+    <script src="/js/learn.js?1634045323"></script>
+    <script src="/js/hugo-learn.js?1634045323"></script>
     
         
-            <script src="/mermaid/mermaid.js?1633529299"></script>
+            <script src="/mermaid/mermaid.js?1634045323"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

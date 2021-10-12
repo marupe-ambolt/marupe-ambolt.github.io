@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Structure on Emily</title>
+    <title>Template structure on Emily</title>
     <link>http://example.org/emily-intro/structure/</link>
-    <description>Recent content in Structure on Emily</description>
+    <description>Recent content in Template structure on Emily</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 27 Sep 2021 09:50:28 +0200</lastBuildDate>
@@ -29,6 +29,16 @@ class PredictItem(BaseModel): sample: str model_path: str @app.post(&amp;#39;/ap
       <guid>http://example.org/emily-intro/structure/emily/</guid>
       <description>The Emily class is simply a wrapper class that instantiates a trainer, an evaluator, and a predictor, and makes these available for calling through the API.
 def __init__(self): self.predictor = Predictor() # Creates instance of the Predictor class self.trainer = Trainer() # Creates instance of the Trainer class self.evaluator = Evaluator() # Creates instance of the Evaluator class def predict(self, request): &amp;#34;&amp;#34;&amp;#34; This function calls the __call__ function from the Predictor class in ml.</description>
+    </item>
+    
+    <item>
+      <title>Model</title>
+      <link>http://example.org/emily-intro/structure/model/</link>
+      <pubDate>Mon, 27 Sep 2021 09:50:28 +0200</pubDate>
+      
+      <guid>http://example.org/emily-intro/structure/model/</guid>
+      <description>The model is where the type of machine learning model to be used in the Emily project is specified. This should be done by letting the model class inherit from whichever machine learning model you wish to use in the project. For example, if you want to use a linear regression model, you can use the LinearRegression class from scikit-learn:
+class Model(sklearn.linear_model.LinearRegression): When we forward a sample to the model, it should make a prediction.</description>
     </item>
     
     <item>
@@ -62,16 +72,6 @@ if model_path != self.model_path: self.</description>
       <description>The predictor implements the behaviour for using a model to make a prediction based on a sample. The steps for doing so are the following:
  Load the model Preprocess the sample Make the prediction Postprocess the prediction  1. Load the model In order to load the model, use the load_model method on the model class. Here is how this is done by default in the template:
 if model_path !</description>
-    </item>
-    
-    <item>
-      <title>Model</title>
-      <link>http://example.org/emily-intro/structure/model/</link>
-      <pubDate>Mon, 27 Sep 2021 09:50:28 +0200</pubDate>
-      
-      <guid>http://example.org/emily-intro/structure/model/</guid>
-      <description>The model is where the type of machine learning model to be used in the Emily project is specified. This should be done by letting the model class inherit from whichever machine learning model you wish to use in the project. For example, if you want to use a linear regression model, you can use the LinearRegression class from scikit-learn:
-class Model(sklearn.linear_model.LinearRegression): When we forward a sample to the model, it should make a prediction.</description>
     </item>
     
   </channel>

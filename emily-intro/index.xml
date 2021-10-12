@@ -27,8 +27,7 @@ Windows MacOS Ubuntu  First download the newest Emily release here. Run the emil
       <pubDate>Mon, 27 Sep 2021 09:50:36 +0200</pubDate>
       
       <guid>http://example.org/emily-intro/build/</guid>
-      <description>To create an Emily project, type emily build in a terminal. You will be prompted for a project name. Enter one and press enter.
-? Emily: Project name: ‣ my-emily-project Next you will be asked to choose an Emily template. These are code templates that will save you time in setting up boilerplate code for your projects. They come in different flavours, depending on what kind of project you are making.</description>
+      <description>An Emily project consists of a template, which is a number of Python files with boilerplate code that you can fill out and customise, and a Docker container, which is a virtual environment where software and libraries for machine learning are already installed. Emily makes sure that each project is run inside its own Docker container, which means that you do not need to install any machine learning software on your own computer.</description>
     </item>
     
     <item>
@@ -37,8 +36,7 @@ Windows MacOS Ubuntu  First download the newest Emily release here. Run the emil
       <pubDate>Mon, 27 Sep 2021 09:50:28 +0200</pubDate>
       
       <guid>http://example.org/emily-intro/share/</guid>
-      <description>When working in a team, it is important that machine learning projects can be shared among team members. Emily supports easy sharing of projects, and integrates with version control software such as git.
-In order to open an Emily project created on another computer, simply copy the project folder onto your own computer, either by standard file copying or through a version control software such as git. Let&amp;rsquo;s say the folder you have copied is called my-emily-project.</description>
+      <description>When working in a team, it is important that machine learning projects can be shared among team members. Emily supports easy sharing of projects, and integrates with version control software such as git. Since Emily projects are run in Docker containers, you do not need to worry about having the correct libraries or versions installed on the computer of each team member, because Emily makes sure to start the project in a container which has all the required libraries installed.</description>
     </item>
     
   </channel>

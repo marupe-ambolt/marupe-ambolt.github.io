@@ -12,20 +12,20 @@
     <title>Create Emily project :: Emily</title>
 
     
-    <link href="/css/nucleus.css?1633529299" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1633529299" rel="stylesheet">
-    <link href="/css/hybrid.css?1633529299" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1633529299" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1633529299" rel="stylesheet">
-    <link href="/css/auto-complete.css?1633529299" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1633529299" rel="stylesheet">
-    <link href="/css/theme.css?1633529299" rel="stylesheet">
-    <link href="/css/tabs.css?1633529299" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1633529299" rel="stylesheet">
+    <link href="/css/nucleus.css?1634045323" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1634045323" rel="stylesheet">
+    <link href="/css/hybrid.css?1634045323" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1634045323" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1634045323" rel="stylesheet">
+    <link href="/css/auto-complete.css?1634045323" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1634045323" rel="stylesheet">
+    <link href="/css/theme.css?1634045323" rel="stylesheet">
+    <link href="/css/tabs.css?1634045323" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1634045323" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1633529299"></script>
+    <script src="/js/jquery-3.3.1.min.js?1634045323"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -70,14 +70,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1633529299"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1633529299"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1634045323"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1634045323"></script>
 <script type="text/javascript">
     
         var baseurl = "http:\/\/example.org\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1633529299"></script>
+<script type="text/javascript" src="/js/search.js?1634045323"></script>
 
     
   </div>
@@ -175,13 +175,13 @@
  
   
     
-    <li data-nav-id="/emily-intro/structure/" title="Structure" class="dd-item
+    <li data-nav-id="/emily-intro/structure/" title="Template structure" class="dd-item
         
         
         
         ">
       <a href="/emily-intro/structure/">
-          Structure
+          Template structure
           
       </a>
       
@@ -226,6 +226,27 @@
       <li data-nav-id="/emily-intro/structure/emily/" title="Emily" class="dd-item ">
         <a href="/emily-intro/structure/emily/">
         Emily
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/emily-intro/structure/model/" title="Model" class="dd-item ">
+        <a href="/emily-intro/structure/model/">
+        Model
         
         </a>
     </li>
@@ -298,27 +319,6 @@
 
             
           
-            
-            
-
-
-
-
- 
-  
-    
-      <li data-nav-id="/emily-intro/structure/model/" title="Model" class="dd-item ">
-        <a href="/emily-intro/structure/model/">
-        Model
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
         
         </ul>
       
@@ -365,13 +365,13 @@
  
   
     
-    <li data-nav-id="/deploy/" title="Deploy to production" class="dd-item
+    <li data-nav-id="/deploy/" title="Deploying a service" class="dd-item
         
         
         
         ">
       <a href="/deploy/">
-          <b>2. </b>Deploy to production
+          <b>2. </b>Deploying a service
           
       </a>
       
@@ -394,13 +394,13 @@
  
   
     
-    <li data-nav-id="/deploy/structure/" title="Code structure" class="dd-item
+    <li data-nav-id="/deploy/structure/" title="Converting a notebook to API" class="dd-item
         
         
         
         ">
       <a href="/deploy/structure/">
-          Code structure
+          Converting a notebook to API
           
       </a>
       
@@ -660,6 +660,7 @@
         
 
 
+<p>An Emily project consists of a template, which is a number of Python files with boilerplate code that you can fill out and customise, and a Docker container, which is a virtual environment where software and libraries for machine learning are already installed. Emily makes sure that each project is run inside its own Docker container, which means that you do not need to install any machine learning software on your own computer.</p>
 <p>To create an Emily project, type <code>emily build</code> in a terminal. You will be prompted for a project name. Enter one and press enter.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">? Emily: Project name:
  ‣ my-emily-project
@@ -672,7 +673,8 @@
 ▸ Machine learning API - Machine learning template with API
   Deep neural network API - Deep neural network template with an API using Pytorch
   Machine learning gRPC - Machine learning template with gRPC
-</code></pre></div><p>Next you will select an Emily Docker image through a few choices. The first choice is what kind of project you will be doing. The slim project type should be enough for many machine learning projects, but if you already know that you will do a more specialised project, you could select another project type. Remember that you can always add more python packages after the project has been created.</p>
+</code></pre></div><p>Next you will select an Emily Docker image through a few choices. A Docker image contains pre-installed software and packages. This means you can get started on machine learning projects without installing any Python libraries on your own computer, since Docker will make sure it is available in your project. To see an overview of the different kind of images available in Emily, see <a href="https://hub.docker.com/repository/docker/ambolt/emily">here</a>.</p>
+<p>The first choice is what kind of project you will be doing. The slim project type should be enough for many machine learning projects, but if you already know that you will do a more specialised project, you could select another project type. Remember that you can always add more python packages after the project has been created by entering the packages into the requirements.txt file in the project directory.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">? Emily: Which project type best fits your case?
 (Use arrow keys, confirm with ⎆)
  … 
@@ -695,7 +697,7 @@
   PyCharm
   Jupyter Notebook
   Jupyter Lab
-</code></pre></div><p>Emily will now build and start a Docker container and then open the project in whichever editor you chose.</p>
+</code></pre></div><p>Emily will then build and start a Docker container and open the project in whichever editor you chose. You will now have the python files from the template you chose ready to be modified and customised to your project.</p>
 
 
 <footer class="footline">
@@ -1072,7 +1074,7 @@
 			<a class="nav nav-prev" href="/emily-intro/install/" title="Install Emily"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/emily-intro/structure/" title="Structure" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/emily-intro/structure/" title="Template structure" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1082,19 +1084,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1633529299"></script>
-    <script src="/js/perfect-scrollbar.min.js?1633529299"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1633529299"></script>
-    <script src="/js/jquery.sticky.js?1633529299"></script>
-    <script src="/js/featherlight.min.js?1633529299"></script>
-    <script src="/js/highlight.pack.js?1633529299"></script>
+    <script src="/js/clipboard.min.js?1634045323"></script>
+    <script src="/js/perfect-scrollbar.min.js?1634045323"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1634045323"></script>
+    <script src="/js/jquery.sticky.js?1634045323"></script>
+    <script src="/js/featherlight.min.js?1634045323"></script>
+    <script src="/js/highlight.pack.js?1634045323"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1633529299"></script>
-    <script src="/js/learn.js?1633529299"></script>
-    <script src="/js/hugo-learn.js?1633529299"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1634045323"></script>
+    <script src="/js/learn.js?1634045323"></script>
+    <script src="/js/hugo-learn.js?1634045323"></script>
     
         
-            <script src="/mermaid/mermaid.js?1633529299"></script>
+            <script src="/mermaid/mermaid.js?1634045323"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
