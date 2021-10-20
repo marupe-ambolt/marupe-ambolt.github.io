@@ -18,7 +18,7 @@
       
       <guid>http://example.org/deploy/test/</guid>
       <description>Once you have set up your API, it is time to test that it actually works. There are multiple ways to do this, and you will see here three different tools for testing your API:
- Swagger UI Postman curl  First of all, you should run your API. In an emily project, you can do this by running the API script with python api.py inside the container. We will assume that you are running your API on http://localhost:4242.</description>
+ Swagger UI Postman curl  First of all, you should run your API. In an emily project, you can do this by running the API script with python api.py inside the container.</description>
     </item>
     
     <item>
@@ -28,7 +28,7 @@
       
       <guid>http://example.org/deploy/deploy/</guid>
       <description>Deploying a service involves hosting it on a server or similar where it can be accessed by clients, apps, or other services. Once you have a server setup that you want to deploy to, Emily can help you with the actual deployment.
-To deploy, run emily deploy server &amp;lt;project name&amp;gt;. First you will be asked which file to run when deployed. For Emily projects this is usually api.py. Next you must choose whether to use GPU functionality on the server you deploy on.</description>
+To deploy, run emily deploy server &amp;lt;project name&amp;gt;. First you will be asked which file to run when deployed. For Emily projects this is usually api.</description>
     </item>
     
   </channel>
